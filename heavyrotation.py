@@ -15,17 +15,13 @@ def get_config_list():
     return configs
  
 def get_configs(configs):
-    availables = []
     sender = []
     parser = SafeConfigParser()
-
+    
     # Welche Sektionen sind für ConfigParser auszulesen?
     for config in configs:
-        availables.append(os.path.splitext(os.path.basename(config))[0])
-
-    configdata = parser.read(configs)
-    for sections in availables:
-        sender.append(dict([('sender', sections)] + parser.items(sections)))
+        configdata = parser.read(config)
+        sender.append(dict(parser.items('settings')))
     return sender
         
 if __name__ == '__main__':
@@ -40,10 +36,12 @@ if __name__ == '__main__':
         print u'Verfügbare Sender:'
         print 
         print 'Shortname\tName\t\tKurzbeschreibung'
+        print '---------------------------------------------------------------------------'
         configs = get_config_list()
         configs_descriptions = get_configs(configs)
+        # print configs_descriptions
         for sender in configs_descriptions:
-            print sender['sender'] + "\t" + sender['sendername'] + "\t" + sender['kurzbeschreibung']
+            print sender['shortname'] + "\t" + sender['sendername'] + "\t" + sender['kurzbeschreibung']
         sys.exit()
-    
+   
     print args
