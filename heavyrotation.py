@@ -41,8 +41,9 @@ def get_playlist(sender):
         data = get_html(config['playlist_url'])
         
         mod = importlib.import_module("plugins." + sender)
-        mod.parse_playlist(data)
-        
+        daten = mod.parse_playlist(data)
+        import pprint
+        pprint.pprint (daten)
  
 def search_playlist_url(url,search):
     data = get_html(url)
