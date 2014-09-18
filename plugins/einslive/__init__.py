@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-
+# Alternatives Datum
+# Thu Sep 18 18:26:39 CEST 2014
 from lxml import html
 
 def parse_playlist(data):
@@ -13,11 +14,8 @@ def parse_playlist(data):
         title = root.xpath(".//*[@id='wsContentArea']/table/tbody/tr["+str(x)+"]/td[3]/text()")[0]
         duration = ''
        
-        date = date.decode('unicode-escape')
-        time = time.decode('unicode-escape')
-        title = title.decode('unicode-escape')
-        artist = artist.decode('unicode-escape')
-        duration = duration.decode('unicode-escape')
+        title = title.decode('unicode-escape').title()
+        artist = artist.decode('unicode-escape').title()
         
         playlist.append ( {'date':date, 'time':time,'artist':artist,'title':title,'duration':duration} )
         

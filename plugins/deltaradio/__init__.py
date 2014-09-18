@@ -13,11 +13,8 @@ def parse_playlist(data):
         title = entry.plain_title
         duration = entry.duration
         
-        date = date.decode('unicode-escape')
-        time = time.decode('unicode-escape')
-        title = title.decode('unicode-escape')
-        artist = artist.decode('unicode-escape')
-        duration = duration.decode('unicode-escape')
+        title = title.title().decode('unicode-escape')
+        artist = artist.title().decode('unicode-escape')
         
         playlist.append ( {'date':date, 'time':time,'artist':artist,'title':title,'duration':duration} )
     return playlist

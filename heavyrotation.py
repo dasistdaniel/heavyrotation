@@ -10,7 +10,7 @@ import importlib
 
 def get_config_list():
     configs=[]
-    for root, dirs, files in os.walk(".\\plugins"):
+    for root, dirs, files in os.walk("./plugins"):
         for file in files:
             if file.endswith('config.ini'):
                 datei = os.path.abspath(os.path.join(root, file))
@@ -23,14 +23,14 @@ def get_configs(configs):
     
     # Welche Sektionen sind für ConfigParser auszulesen?
     for config in configs:
-        shortname = os.path.split(config)[0].split('\\').pop()
+        shortname = os.path.split(config)[0].split('/').pop()
         configdata = parser.read(config)
         sender.append(dict([('shortname',shortname)] + parser.items('settings')))
     return sender
     
 def get_playlist(sender):
     print sender
-    path = os.path.abspath('.\\plugins\\' + sender + '\\config.ini')
+    path = os.path.abspath('./plugins/' + sender + '/config.ini')
     if os.path.isfile(path):
         parser = SafeConfigParser()
         configdata = parser.read(path)
