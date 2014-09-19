@@ -3,11 +3,12 @@
 import argparse
 import os
 import sys
-from ConfigParser import SafeConfigParser
 import urllib2
-from lxml import html
 import importlib
-
+from ConfigParser import SafeConfigParser
+from lxml import html
+import sqlite3 as sqlite
+ 
 def get_config_list():
     configs=[]
     for root, dirs, files in os.walk(".\\plugins"):
@@ -29,7 +30,6 @@ def get_configs(configs):
     return sender
     
 def get_playlist(sender):
-    print sender
     path = os.path.abspath('.\\plugins\\' + sender + '\\config.ini')
     if os.path.isfile(path):
         parser = SafeConfigParser()
@@ -42,8 +42,14 @@ def get_playlist(sender):
         
         mod = importlib.import_module("plugins." + sender)
         daten = mod.parse_playlist(data)
-        import pprint
-        pprint.pprint (daten)
+        
+        for data in daten:
+            print '[%s - %s] %s - %s [%s]' % (data['date'], data['time'], data['artist'], data['title'], data['duration']) 
+        
+        if not args.printonly:
+            if not os.path.isfile(args.database):
+                database_create()
+        
  
 def search_playlist_url(url,search):
     data = get_html(url)
@@ -60,12 +66,27 @@ def search_playlist_url(url,search):
 def get_html(url):
         return urllib2.urlopen(url).read()
 
+def database_create():
+    print "lege neue db an"
+    conn = sqlite.connect(args.database)
+    c = conn.cursor()
+
+    c.execute('''CREATE TABLE `title` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,`title` TEXT NOT NULL,`artist` INTEGER NOT NULL,`duration` INTEGER);''')
+    c.execute('''CREATE TABLE `sender` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `name` INTEGER NOT NULL UNIQUE);''')
+    c.execute('''CREATE TABLE `playlist` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `sender_id` INTEGER NOT NULL, `title_id` INTEGER NOT NULL, `date` INTEGER NOT NULL, `time` INTEGER NOT NULL);''')
+    c.execute('''CREATE TABLE `artist` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `artist` TEXT NOT NULL);''')
+
+    conn.commit()
+    conn.close()
     
+        
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(__file__, description='HeavyCharts, aggregriert Senderplaylisten und speichert sie ab.')
     parser.add_argument('sender', help=u'Shortname des Senders (siehe --list)', nargs='*')
     parser.add_argument('-l', '--list', help='Liste der Sender ausgeben', action='store_true')
     parser.add_argument('-a', '--all', help=u'Alle verfügbaren Sender abrufen', action='store_true')
+    parser.add_argument('--printonly', help=u'Daten nur anzeigen, nicht in der Datenbank speichern', action='store_true')
+    parser.add_argument('-d', '--database', help=u'Welche Datenbank Datei soll genutzt werden.', action='store', default='database/heavyrotation.sqlite')
     
     args = parser.parse_args()
     

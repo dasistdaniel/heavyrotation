@@ -2,13 +2,15 @@
 # -*- coding: utf-8 -*-
 
 import feedparser
+import datetime
+from time import mktime
 
 def parse_playlist(data):
     playlist = []
     root = feedparser.parse(data)
     for entry in root.entries:
-        date = ''
-        time = ''
+        date = datetime.date.today().strftime('%Y-%m-%d')
+        time = datetime.datetime.fromtimestamp(mktime(entry.published_parsed)).strftime('%H:%M:%S')
         artist = entry.artist
         title = entry.plain_title
         duration = entry.duration
