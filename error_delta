@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- generator="FeedCreator 1.7.2" -->
+<rss version="2.0">
+    <channel>
+        <title>delta radio Playlist</title>
+        <description></description>
+        <link>http://www.deltaradio.de/feeds/playlist.rss</link>
+        <lastBuildDate>Fri, 19 Sep 2014 20:14:36 +0100</lastBuildDate>
+        <generator>FeedCreator 1.7.2</generator>
+        <item>
+            <title>PETER FOX - SCHWARZ ZU BLAU</title>
+            <link>http://www.deltaradio.de/3121552/titelsuche.html</link>
+            <description></description>
+            <author>delta radio</author>
+            <category>Musik</category>
+            <pubDate>Fri, 19 Sep 2014 18:12:28 +0100</pubDate>
+            <guid>5569127</guid>
+        <type>M</type>
+        <artist>PETER FOX</artist>
+        <plain_title>SCHWARZ ZU BLAU</plain_title>
+        <duration>178</duration>
+        <end>1411150526</end>
+        <image>http://ecx.images-amazon.com/images/I/61LX6uZa4kL._SL160_.jpg</image>
+        <asin>B001SX73R6</asin>
+        </item>
+        <item>
+            <title>TEESY - KEINE ROSEN</title>
+            <link>http://www.deltaradio.de/3121552/titelsuche.html</link>
+            <description></description>
+            <author>delta radio</author>
+            <category>Musik</category>
+            <pubDate>Fri, 19 Sep 2014 18:09:07 +0100</pubDate>
+            <guid>5569120</guid>
+        <type>M</type>
+        <artist>TEESY</artist>
+        <plain_title>KEINE ROSEN</plain_title>
+        <duration>199</duration>
+        <end>1411150346</end>
+        <image>http://ecx.images-amazon.com/images/I/41HiWMV7PDL._SL160_.jpg</image>
+        <asin>B00MQ8CMTG</asin>
+        </item>
+        <item>
+            <title>TONBANDGERÄT - ALLES GEHT</title>
+            <link>http://www.deltaradio.de/3121552/titelsuche.html</link>
+            <description></description>
+            <author>delta radio</author>
+            <category>Musik</category>
+            <pubDate>Fri, 19 Sep 2014 18:04:51 +0100</pubDate>
+            <guid>5569102</guid>
+        <type>M</type>
+        <artist>TONBANDGERÄT</artist>
+        <plain_title>ALLES GEHT</plain_title>
+        <duration>178</duration>
+        <end>1411150069</end>
+        <asin>B00N4T09MS</asin>
+        <image>http://www.deltaradio.de/images/DELTA/playlist-fallback.jpg</image>
+        </item>
+        <item>
+            <title>SEEED - DING</title>
+            <link>http://www.deltaradio.de/3121552/titelsuche.html</link>
+            <description></description>
+            <author>delta radio</author>
+            <category>Musik</category>
+            <pubDate>Fri, 19 Sep 2014 18:00:27 +0100</pubDate>
+            <guid>5569096</guid>
+        <type>M</type>
+        <artist>SEEED</artist>
+        <plain_title>DING</plain_title>
+        <duration>191</duration>
+        <end>1411149818</end>
+        <image>http://ecx.images-amazon.com/images/I/61ajrTAzEOL._SL160_.jpg</image>
+        <asin>B001YJ16BI</asin>
+        </item>
+        <item>
+            <title>SEBASTIAN HACKEL - WARUM SIE LACHT</title>
+            <link>http://www.deltaradio.de/3121552/titelsuche.html</link>
+            <description></description>
+            <author>delta radio</author>
+            <category>Musik</category>
+            <pubDate>Fri, 19 Sep 2014 17:56:14 +0100</pubDate>
+            <guid>5569084</guid>
+        <type>M</type>
+        <artist>SEBASTIAN HACKEL</artist>
+        <plain_title>WARUM SIE LACHT</plain_title>
+        <duration>252</duration>
+        <end>1411149626</end>
+        <image>http://ecx.images-amazon.com/images/I/51QqcizEgPL._SL160_.jpg</image>
+        <asin>B00J54C3GG</asin>
+        </item>
+        <item>
+            <title>JULI - GEILE ZEIT</title>
+            <link>http://www.deltaradio.de/3121552/titelsuche.html</link>
+            <description></description>
+            <author>delta radio</author>
+            <category>Musik</category>
+            <pubDate>Fri, 19 Sep 2014 17:52:08 +0100</pubDate>
+            <guid>5569073</guid>
+        <type>M</type>
+        <artist>JULI</artist>
+        <plain_title>GEILE ZEIT</plain_title>
+        <duration>208</duration>
+        <end>1411149336</end>
+        <image>http://ecx.images-amazon.com/images/I/51EYN07eEiL._SL160_.jpg</image>
+        <asin>B001SW5W66</asin>
+        </item>
+        <item>
+            <title>FETTES BROT - EMANUELA</title>
+            <link>http://www.deltaradio.de/3121552/titelsuche.html</link>
+            <description></description>
+            <author>delta radio</author>
+            <category>Musik</category>
+            <pubDate>Fri, 19 Sep 2014 17:49:00 +0100</pubDate>
+            <guid>5569067</guid>
+        <type>M</type>
+        <artist>FETTES BROT</artist>
+        <plain_title>EMANUELA</plain_title>
+        <duration>186</duration>
+        <end>1411149126</end>
+        <image>http://ecx.images-amazon.com/images/I/51LpH4omUoL._SL160_.jpg</image>
+        <asin>B00FG2J8KK</asin>
+        </item>
+        <item>
+            <title>MEGHAN TRAINOR - ALL ABOUT THAT BASS</title>
+            <link>http://www.deltaradio.de/3121552/titelsuche.html</link>
+            <description></description>
+            <author>delta radio</author>
+            <category>Musik</category>
+            <pubDate>Fri, 19 Sep 2014 17:38:51 +0100</pubDate>
+            <guid>5569047</guid>
+        <type>M</type>
+        <artist>MEGHAN TRAINOR</artist>
+        <plain_title>ALL ABOUT THAT BASS</plain_title>
+        <duration>186</duration>
+        <end>1411148517</end>
+        <image>http://ecx.images-amazon.com/images/I/51PhEpTgBcL._SL160_.jpg</image>
+        <asin>B00L7U0LU6</asin>
+        </item>
+    </channel>
+</rss>

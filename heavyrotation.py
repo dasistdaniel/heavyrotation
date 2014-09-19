@@ -25,17 +25,14 @@ def get_configs(configs):
     # Welche Sektionen sind für ConfigParser auszulesen?
     for config in configs:
         shortname = os.path.split(config)[0].split('/').pop()
+        shortname = os.path.split(shortname)[1]
+        
         configdata = parser.read(config)
         sender.append(dict([('shortname',shortname)] + parser.items('settings')))
     return sender
     
 def get_playlist(sender):
-<<<<<<< HEAD
-    path = os.path.abspath('.\\plugins\\' + sender + '\\config.ini')
-=======
-    print sender
     path = os.path.abspath('./plugins/' + sender + '/config.ini')
->>>>>>> 989fc441f6f6add8575d42d9bde4672fdf047f71
     if os.path.isfile(path):
         parser = SafeConfigParser()
         configdata = parser.read(path)
@@ -46,15 +43,17 @@ def get_playlist(sender):
         data = get_html(config['playlist_url'])
         
         mod = importlib.import_module("plugins." + sender)
-        daten = mod.parse_playlist(data)
         
+        daten = mod.parse_playlist(data)
+            
         for data in daten:
-            print '[%s - %s] %s - %s [%s]' % (data['date'], data['time'], data['artist'], data['title'], data['duration']) 
+            print '%s [%s - %s] %s - %s [%s]' % (sender, data['date'], data['time'], data['artist'], data['title'], data['duration']) 
         
         if not args.printonly:
             if not os.path.isfile(args.database):
                 database_create()
-        
+            
+            database_save(sender,daten)
  
 def search_playlist_url(url,search):
     data = get_html(url)
@@ -81,6 +80,30 @@ def database_create():
     c.execute('''CREATE TABLE `playlist` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `sender_id` INTEGER NOT NULL, `title_id` INTEGER NOT NULL, `date` INTEGER NOT NULL, `time` INTEGER NOT NULL);''')
     c.execute('''CREATE TABLE `artist` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `artist` TEXT NOT NULL);''')
 
+    conn.commit()
+    conn.close()
+    
+def database_save(sender, daten):
+    conn = sqlite.connect(args.database)
+    c = conn.cursor()
+
+
+    # Check ob Sender schon in der Datenbank ist 
+    c.execute('SELECT id, name FROM sender WHERE name = ?', (sender,))
+    sender_exist = c.fetchone()
+    
+    if sender_exist is None:
+        c.execute('INSERT INTO sender (name) VALUES (?)', (sender,))
+        sender_id = c.lastrowid
+    else:
+        sender_id = sender_exist[0]
+        
+        
+    # print sender_id
+    
+    for data in daten:
+        pass
+    
     conn.commit()
     conn.close()
     

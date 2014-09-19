@@ -15,13 +15,12 @@ def parse_playlist(data):
         title = entry.plain_title
         duration = entry.duration
         
-<<<<<<< HEAD
-        title = title.decode('unicode-escape').title()
-        artist = artist.decode('unicode-escape').title()
-=======
-        title = title.title().decode('unicode-escape')
-        artist = artist.title().decode('unicode-escape')
->>>>>>> 989fc441f6f6add8575d42d9bde4672fdf047f71
-        
+        try:
+            title = title.decode('unicode-escape').title()
+            artist = artist.decode('unicode-escape').title()
+        except:
+            f = open ('error_delta', 'w')
+            f.write(data)
+            f.close()
         playlist.append ( {'date':date, 'time':time,'artist':artist,'title':title,'duration':duration} )
     return playlist
