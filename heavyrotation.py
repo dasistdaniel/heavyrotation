@@ -51,13 +51,17 @@ def get_playlist(sender):
         mod = importlib.import_module("plugins." + sender)
 
         daten = mod.parse_playlist(data)
+        
+        if len(daten) > 0:
+            if not args.printonly:
+                if not os.path.isfile(args.database):
+                    database_create()
 
-        if not args.printonly:
-            if not os.path.isfile(args.database):
-                database_create()
-
-            database_save(sender, daten)
-
+                database_save(sender, daten)
+            else:
+                for data in daten:
+                    print '[n] %s [%s - %s] %s - %s [%s]' % (sender, data['date'], data['time'], data['artist'], data['title'], data['duration'])
+            
 
 def search_playlist_url(url, search):
     data = get_html(url)
