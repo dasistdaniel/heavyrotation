@@ -1,9 +1,10 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+# Sun Sep 21 17:31:19 CEST 2014
 
 from lxml import html
 from datetime import date as dt
-
+from dateutil.parser import parse
 
 def parse_playlist(data):
     playlist = []
@@ -19,7 +20,11 @@ def parse_playlist(data):
             title = root.xpath(
                 ".//*[@id='wsContentArea']/table/tbody/tr[" + str(x) + "]/td[3]/text()")[0]
             duration = ''
-
+            
+            if 'CEST' in time:
+                d = parse(time)
+                date = d.strftime('%Y-%m-%d')
+                time = d.strftime('%H:%M:%S')
             try:
                 title = title.decode('unicode-escape').title()
                 artist = artist.decode('unicode-escape').title()

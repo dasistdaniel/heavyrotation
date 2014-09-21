@@ -52,7 +52,7 @@ def get_playlist(sender):
 
         daten = mod.parse_playlist(data)
         
-        if len(daten) > 0:
+        if daten:
             if not args.printonly:
                 if not os.path.isfile(args.database):
                     database_create()
