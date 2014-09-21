@@ -26,4 +26,4 @@ def parse_playlist(data):
             f.close()
         playlist.append(
             {'date': date, 'time': time, 'artist': artist, 'title': title, 'duration': duration})
-    return playlist
+    return reversed(playlist)
