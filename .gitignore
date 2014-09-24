@@ -54,3 +54,4 @@ docs/_build/
 
 # My Databases
 *.sqlite
+error_*
