@@ -22,7 +22,7 @@ def parse_playlist(data):
             duration = ''
             
             if 'CEST' in time:
-                d = parse(time)
+                d = parse(str(time))
                 date = d.strftime('%Y-%m-%d')
                 time = d.strftime('%H:%M:%S')
             try:

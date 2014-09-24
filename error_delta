@@ -1,0 +1,563 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html
+     PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+     "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html dir="ltr" xml:lang="de" lang="de" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- 
+	YAML for TemplaVoila - Version 3.0.3
+
+	This website is powered by TYPO3 - inspiring people to share!
+	TYPO3 is a free open source Content Management Framework initially created by Kasper Skaarhoj and licensed under GNU/GPL.
+	TYPO3 is copyright 1998-2013 of Kasper Skaarhoj. Extensions are copyright of their respective owners.
+	Information and contribution at http://typo3.org/
+-->
+
+<base href="http://www.radioessen.de/" />
+
+<title>Playlist: Radio Essen</title>
+<meta name="generator" content="TYPO3 4.5 CMS" />
+
+<link rel="stylesheet" type="text/css" href="http://cf-mpg-es.mbon.de/typo3temp/stylesheet_6a83980bc1.css?1401802446" media="all" />
+<link rel="stylesheet" type="text/css" href="http://cf-mpg-es.mbon.de/typo3conf/ext/mailform/template/mailform.css?1315477495" media="all" />
+<link rel="stylesheet" type="text/css" href="http://cf-mpg-es.mbon.de/typo3conf/ext/mbon_osterei/css/mbon_osterei.css?1238689997" media="all" />
+<link rel="stylesheet" type="text/css" href="http://cf-mpg-es.mbon.de/typo3conf/ext/mbon_bkk/style.css?1357765857" media="all" />
+<link rel="stylesheet" type="text/css" href="http://cf-mpg-es.mbon.de/typo3conf/ext/mbon_suchespiel/css/mbon_suchespeil.css?1259313642" media="all" />
+
+
+
+<script src="http://cf-mpg-es.mbon.de/fileadmin/scripts/mbon.js?1320331226" type="text/javascript"></script>
+<script src="http://cf-mpg-es.mbon.de/fileadmin/scripts/zone-var-musik.js?1260374733" type="text/javascript"></script>
+<script src="http://cf-mpg-es.mbon.de/fileadmin/scripts/omsv_rmsi.js?1395104233" type="text/javascript"></script>
+<script src="http://cf-mpg-es.mbon.de/typo3conf/ext/rgmediaimages/res/swfobject.js?1404805819" type="text/javascript"></script>
+<script src="http://cf-mpg-es.mbon.de/fileadmin/scripts/jquery-1.7.2.min.js?1332852978" type="text/javascript"></script>
+<script src="http://cf-mpg-es.mbon.de/typo3temp/javascript_a708894199.js?1371463276" type="text/javascript"></script>
+
+
+<link href="http://cf-mpg-es.mbon.de/fileadmin/styles/05_layouts_advanced/css/layout_2col_left_seo.css" rel="stylesheet" type="text/css" /><!--[if lte IE 7]><link href="http://cf-mpg-es.mbon.de/fileadmin/styles/patches/../05_layouts_advanced/css/patches/patch_2col_left_seo.css" rel="stylesheet" type="text/css" /><![endif]--><script type="text/javascript" language="javascript" src="http://i.tfag.de/js_ng/js_ng_RMS_0200.js"></script><script type="text/javascript">
+function fb_resize(w, h) {
+    $('#fancybox-content').width(w);
+    if (h > 0) $('#fancybox-content').css({ height: h+"px"});
+    $.fancybox.resize();
+    if (w > 0) {
+      $('#fancybox-wrap').css({ width: w+"px"});
+      $('#fancybox-title').css({ width: w+"px"});
+    }
+}
+</script><link rel="canonical" href="http://www.radioessen.de/musik/playlist.html?type=0" /><script type="text/javascript" src="http://cf-mpg-es.mbon.de/typo3conf/ext/rgmediaimages/res/audio-js/audio.min.js"></script>
+<script type="text/javascript">audiojs.events.ready(function() {audiojs.createAll();});</script>
+<meta property="fb:admins" content="573714835" />
+<meta property="og:type" content="Website" />
+<meta property="og:image" content="http://www.radioessen.de/fileadmin/gfx/Cover_Facebook_Essen_256.png" />
+<link rel="image_src" href="http://www.radioessen.de/fileadmin/gfx/Cover_Facebook_Essen_256.png" />
+
+<script type="text/javascript" src="jquery.socialshareprivacy.js"></script>
+<script type="text/javascript">
+  jQuery(document).ready(function($){
+    if($('#socialshareprivacy').length > 0){
+      $('#socialshareprivacy').socialSharePrivacy(); 
+    }
+  });
+</script>
+
+<script type="text/javascript">
+try
+   {
+  var ystr="";
+  var y_adj="";
+
+for (var id in yl.YpResult.getAll()) {
+
+c = yl.YpResult.get(id);
+ystr+= ';y_ad='+c.id;
+ if(c.format){
+ y_adj=';y_adj='+c.format;
+  }
+}
+ystr+=y_adj+';'; 
+WLRCMD=WLRCMD+ystr+segQS+crtg_content;
+ }
+catch(err)
+   {}
+  </script>
+  <script type="text/javascript" src="https://script.ioam.de/iam.js"></script>
+<!--[if IE 6]><link rel="stylesheet" href="http://cf-mpg-es.mbon.de/fileadmin/styles/05_layouts_advanced/css/screen/ie6.css" /><![endif]--><meta name="description" content="Der lokale Radiosender für Essen. Mit Nachrichten und Informationen aus Essen, NRW, Deutschland und der Welt; dazu Comedy, Kulthits und das Beste von Heute - der beste Mix." />
+<meta name="robots" content="NOODP,index,follow" />
+<meta name="copyright" content="Radio Essen" />
+<meta http-equiv="content-language" content="de" />
+<meta name="author" content="Radio Essen" />
+<meta name="revisit-after" content="7 days" />
+
+
+
+
+</head>
+<body>
+
+
+		<!-- SZM VERSION="2.0" --> 
+		<script type="text/javascript"> 
+		var iam_data = { 
+		"st":"radioess", // site/domain 
+		"cp":"RaEs-Playlist", // code 2.0
+		"oc":"RaEs-Playlist", // code 1.2
+		"mg":"yes", // Steuerung der Fragebogenauslieferung 
+		"sv":"in", // Steuerung der Fragebogenauslieferung 
+		"co":"Playlist" // comment 
+		} 
+		iom.c(iam_data); 
+		</script> 
+		<!--/SZM --> 
+		
+
+	<!--  CONTENT ELEMENT, uid:2375/html [begin] -->
+		<a name="c2375"></a><div id="c2375" class="csc-default">
+		<!--  Raw HTML content: [begin] -->
+			<style type="text/css">
+#adl_sb_table{
+position:relative;
+left:-110px;
+width:838px;
+}
+</style>
+
+<!-- AdCall/Tag: Superbanner Start-->
+<div id="adsd_banner_top" style="position: relative; top:0px; left: 110px; z-index: 9999; width: 728px;">
+<!------- Start of OMSV - Javascript Format , size : 728x90 ------>
+<script language="JavaScript" type="text/javascript">
+   if(typeof(WLRCMD)=="undefined"){var WLRCMD="";}
+   if(typeof(rmsi_random)=="undefined"){var rmsi_random=Math.floor(Math.random()*10000000000)}
+   document.write('<scr'+'ipt language="JavaScript" src="http://ad.de.doubleclick.net/adj/rmsi.1022radioessen.de/musik;rmsi=musik;nielsen=2;'+WLRCMD+';sz=728x90;tile=1;ord='+rmsi_random+'?"><\/scr'+'ipt>');
+</script><noscript>
+<a href="http://ad.de.doubleclick.net/jump/rmsi.1022radioessen.de/musik;rmsi=musik;nielsen=2;sz=728x90;tile=1;ord=468029769535?" target="_blank">
+<img src="http://ad.de.doubleclick.net/ad/rmsi.1022radioessen.de/musik;rmsi=musik;nielsen=2;sz=728x90;tile=1;ord=468029769535?" border="0" width="728" height="90" alt="" />
+</a></noscript>
+<!------- End of OMSV Tag - Javascript Format, size : 728x90 ------>
+</div>
+<!-- AdCall/Tag: Superbanner Ende-->
+		<!--  Raw HTML content: [end] -->
+			</div>
+	<!--  CONTENT ELEMENT, uid:2375/html [end] -->
+		
+<div id="page_margins">
+	<div id="page">
+		<div id="header">
+		<!-- Output of lib.header [begin] -->
+			
+		<!-- Output of lib.header.20 [begin] -->
+			<div id="topnav"><a class="skip" href="musik/playlist.html?type=0#navigation" title="Direkt zur Navigation springen">Zur Navigation springen</a><span class="hideme">.</span><a class="skip" href="musik/playlist.html?type=0#content" title="Direkt zum Content springen">Zum Content springen</a><span class="hideme">.</span><a href="home.html" target="_self" title="Lokale Nachrichten und Informationen aus Essen dazu Kulthits und das Beste von Heute. Radio Essen – 100% von hier." id="topmenu_23" class="toplinks">Home</a>&nbsp;<span class="teaserpipe">&#124;</span>&nbsp;<a href="ueber-uns/kontakt.html" target="_self" id="topmenu_46" class="toplinks">Kontakt</a>&nbsp;<span class="teaserpipe">&#124;</span>&nbsp;<a href="musik/playlist.html" target="_self" id="topmenu_44" class="toplinks">Playlist</a>&nbsp;<span class="teaserpipe">&#124;</span>&nbsp;<a href="werbung.html" target="_self" id="topmenu_43" class="toplinks">Werbung</a>&nbsp;<span class="teaserpipe">&#124;</span>&nbsp;<a href="service/webcam.html" target="_self" id="topmenu_42" class="toplinks">Webcam</a>&nbsp;<span class="teaserpipe">|</span><a id="bookmark_end" class="toplinks" href="javascript:void(0)" onclick="mbonBookmark();">Bookmark</a></div>
+		<!-- Output of lib.header.20 [end] -->
+			<div class="headzone"><div class="headzone_content"><div class="r_logo"><a href="home.html" target="_self"><img src="http://cf-mpg-es.mbon.de/fileadmin/gfx/logo.png" width="171" height="75" border="0" alt="" /></a></div><div class="r_webradio"><a href="service/webradio.html" target="_self"><img src="http://cf-mpg-es.mbon.de/fileadmin/gfx/wradio.png" width="59" height="73" border="0" alt="" /></a></div><div class="r_local"><a href="essen/lokalnachrichten.html" target="_self"><img src="http://cf-mpg-es.mbon.de/fileadmin/gfx/lnachrichten.png" width="98" height="75" border="0" alt="" /></a></div><div class="r_social"><div class="r_fb"><a href="http://www.facebook.com/radioessen" target="_blank"><img src="http://cf-mpg-es.mbon.de/fileadmin/gfx/fb.png" width="16" height="16" border="0" class="fbimg" alt="" />Facebook</a></div><div class="r_playlist"><a href="Playlist.82.0.html"><img src="http://cf-mpg-es.mbon.de/fileadmin/gfx/playlist.png" width="19" height="17" border="0" class="playlistimg" alt="" />Playlist ansehen</a></div><div class="r_pin"><a href="Verkehrsservice.88.0.html"><img src="http://cf-mpg-es.mbon.de/fileadmin/gfx/traffic-01.png" width="17" height="16" border="0" class="pinimg" alt="" />Verkehrsservice</a></div></div></div></div>
+		<!-- Output of lib.header [end] -->
+			</div>
+		<div id="nav"></div>
+		<div id="main">
+			<div id="teaser" class="clearfix">
+		<!-- Output of lib.teaser.10 [begin] -->
+			<div class="rootline">
+		<!-- Output of lib.teaser.10.10 [begin] -->
+			Sie sind hier:
+		<!-- Output of lib.teaser.10.10 [end] -->
+			 
+		<!-- Output of lib.teaser.10.20 [begin] -->
+			<a href="musik.html" target="_self">Musik</a>&nbsp;/&nbsp;Playlist
+		<!-- Output of lib.teaser.10.20 [end] -->
+			</div>
+		<!-- Output of lib.teaser.10 [end] -->
+			
+		<!-- Output of lib.teaser.30 [begin] -->
+			<div class="selectFontSize">
+		<!-- Output of lib.teaser.30.10 [begin] -->
+			
+		<!-- Output of lib.teaser.30.10 [end] -->
+			</div>
+		<!-- Output of lib.teaser.30 [end] -->
+			<div id="toolbox">&nbsp;</div><div id="contentteaser"><img src="http://cf-mpg-es.mbon.de/typo3temp/GB/81c002f3b7.png" width="214" height="18" border="0" alt="" /><a id="t_drucken" href="javascript:void(0)" onclick="mbonPrint();">Drucken</a> <span class="teaserpipe">|</span> <a id="t_versenden" href="javascript:void(0);" onclick="mbonSendToFriend(82, 39);">Versenden</a> <span class="teaserpipe">|</span> <a id="t_bookmark" href="javascript:void(0)" onclick="mbonBookmark();">Bookmark</a> <!-- <span class="teaserpipe">|</span> <a id="t_rss" href="musik/playlist.html?type=0#">RSS</a> --></div></div>
+			<div id="col1">
+			  <a id="content" name="content"></a>
+				<div id="col1_content" class="clearfix"><h1>Playlist</h1><!--TYPO3SEARCH_begin-->
+	<!--  CONTENT ELEMENT, uid:2145/page_php_content_pi1 [begin] -->
+		<a name="c2145"></a><div id="c2145" class="csc-default"><div class="playlist">
+<style>
+
+.odd{
+    background-color: #D4D3D3;
+    border-bottom: 2px #ffffff solid;
+    padding:4px;
+    height: 70px;
+    vertical-align: top;
+}
+
+.even{
+    background-color: #F2F2F2;
+    border-bottom: 2px #ffffff solid;
+    padding:4px;
+    height: 70px;
+    vertical-align: top;
+}
+
+.borders{
+    border-left: 1px #C0BFBF solid;
+    border-right: 1px #C0BFBF solid;
+}
+
+
+</style>
+<p>Diese Titel laufen momentan bei Radio Essen:</p>
+<table  style='width:580px'>
+<tr>
+<th> </th>
+<th>Artist / Song</th>
+<th align="center">Uhrzeit</th>
+<th></th>
+<th width="68"></th>
+</tr>
+<tr><td colspan="6"></td></tr>
+        <tr>
+           <td class=" even "><img width="60" height="60" border="0" src="http://daten.westfunk.de/nrw-cover/5319812.jpg"/></td>
+           <td class=" even "><b>Gossip</b><br>Move In The Right Direction</td>        
+           <td class=" even  borders" align="center">20:57:10<br>&nbsp;</td>
+           <td class=" even ">Jetzt diesen Titel<br> kaufen:</td>
+           <td class=" even " align="right"> 
+                
+            <a href="https://itunes.apple.com/WebObjects/MZSearch.woa/wa/search?term=Gossip+Move+In+The+Right+Direction&at=10lt8U" target="_blank">
+               <img src="/worx/playlist_scripts/itunes.gif" alt="Diesen Titel bei iTunes suchen"  title="Diesen Titel bei iTunes suchen" border="0"> 
+            </a><img src="http://impde.tradedoubler.com/imp?type(inv)g(18460838)a(1841791)">                
+                
+           </a><IMG SRC="http://banners.webmasterplan.com/view.asp?site=3752&ref=480853&b=0&type=text&tnb=29" BORDER="0" WIDTH="1" HEIGHT="1"> </td>
+
+        </tr>
+            <tr>
+           <td class=" odd "><img width="60" height="60" border="0" src="http://daten.westfunk.de/nrw-cover/3676.jpg"/></td>
+           <td class=" odd "><b>R.E.M</b><br>Imitation Of Life</td>        
+           <td class=" odd  borders" align="center">20:51:53<br>&nbsp;</td>
+           <td class=" odd ">Jetzt diesen Titel<br> kaufen:</td>
+           <td class=" odd " align="right"> 
+                
+            <a href="https://itunes.apple.com/WebObjects/MZSearch.woa/wa/search?term=R.E.M+Imitation+Of+Life&at=10lt8U" target="_blank">
+               <img src="/worx/playlist_scripts/itunes.gif" alt="Diesen Titel bei iTunes suchen"  title="Diesen Titel bei iTunes suchen" border="0"> 
+            </a><img src="http://impde.tradedoubler.com/imp?type(inv)g(18460838)a(1841791)">                
+                
+           </a><IMG SRC="http://banners.webmasterplan.com/view.asp?site=3752&ref=480853&b=0&type=text&tnb=29" BORDER="0" WIDTH="1" HEIGHT="1"> </td>
+
+        </tr>
+            <tr>
+           <td class=" even "><img width="60" height="60" border="0" src="http://daten.westfunk.de/nrw-cover/5553049.jpg"/></td>
+           <td class=" even "><b>Katy Perry</b><br>Roar</td>        
+           <td class=" even  borders" align="center">20:48:10<br>&nbsp;</td>
+           <td class=" even ">Jetzt diesen Titel<br> kaufen:</td>
+           <td class=" even " align="right"> 
+                
+            <a href="https://itunes.apple.com/WebObjects/MZSearch.woa/wa/search?term=Katy+Perry+Roar&at=10lt8U" target="_blank">
+               <img src="/worx/playlist_scripts/itunes.gif" alt="Diesen Titel bei iTunes suchen"  title="Diesen Titel bei iTunes suchen" border="0"> 
+            </a><img src="http://impde.tradedoubler.com/imp?type(inv)g(18460838)a(1841791)">                
+                
+           </a><IMG SRC="http://banners.webmasterplan.com/view.asp?site=3752&ref=480853&b=0&type=text&tnb=29" BORDER="0" WIDTH="1" HEIGHT="1"> </td>
+
+        </tr>
+            <tr>
+           <td class=" odd "><img width="60" height="60" border="0" src="http://daten.westfunk.de/nrw-cover/5479445.jpg"/></td>
+           <td class=" odd "><b>Coolio</b><br>Gangstas Paradise</td>        
+           <td class=" odd  borders" align="center">20:44:11<br>&nbsp;</td>
+           <td class=" odd ">Jetzt diesen Titel<br> kaufen:</td>
+           <td class=" odd " align="right"> 
+                
+            <a href="https://itunes.apple.com/WebObjects/MZSearch.woa/wa/search?term=Coolio+Gangstas+Paradise&at=10lt8U" target="_blank">
+               <img src="/worx/playlist_scripts/itunes.gif" alt="Diesen Titel bei iTunes suchen"  title="Diesen Titel bei iTunes suchen" border="0"> 
+            </a><img src="http://impde.tradedoubler.com/imp?type(inv)g(18460838)a(1841791)">                
+                
+           </a><IMG SRC="http://banners.webmasterplan.com/view.asp?site=3752&ref=480853&b=0&type=text&tnb=29" BORDER="0" WIDTH="1" HEIGHT="1"> </td>
+
+        </tr>
+            <tr>
+           <td class=" even "><img width="60" height="60" border="0" src="http://daten.westfunk.de/nrw-cover/6028189.jpg"/></td>
+           <td class=" even "><b>James Blunt</b><br>Postcards</td>        
+           <td class=" even  borders" align="center">20:38:24<br>&nbsp;</td>
+           <td class=" even ">Jetzt diesen Titel<br> kaufen:</td>
+           <td class=" even " align="right"> 
+                
+            <a href="https://itunes.apple.com/WebObjects/MZSearch.woa/wa/search?term=James+Blunt+Postcards&at=10lt8U" target="_blank">
+               <img src="/worx/playlist_scripts/itunes.gif" alt="Diesen Titel bei iTunes suchen"  title="Diesen Titel bei iTunes suchen" border="0"> 
+            </a><img src="http://impde.tradedoubler.com/imp?type(inv)g(18460838)a(1841791)">                
+                
+           </a><IMG SRC="http://banners.webmasterplan.com/view.asp?site=3752&ref=480853&b=0&type=text&tnb=29" BORDER="0" WIDTH="1" HEIGHT="1"> </td>
+
+        </tr>
+            <tr>
+           <td class=" odd "><img width="60" height="60" border="0" src="http://daten.westfunk.de/nrw-cover/5852377.jpg"/></td>
+           <td class=" odd "><b>Vance Joy</b><br>Riptide</td>        
+           <td class=" odd  borders" align="center">20:31:29<br>&nbsp;</td>
+           <td class=" odd ">Jetzt diesen Titel<br> kaufen:</td>
+           <td class=" odd " align="right"> 
+                
+            <a href="https://itunes.apple.com/WebObjects/MZSearch.woa/wa/search?term=Vance+Joy+Riptide&at=10lt8U" target="_blank">
+               <img src="/worx/playlist_scripts/itunes.gif" alt="Diesen Titel bei iTunes suchen"  title="Diesen Titel bei iTunes suchen" border="0"> 
+            </a><img src="http://impde.tradedoubler.com/imp?type(inv)g(18460838)a(1841791)">                
+                
+           </a><IMG SRC="http://banners.webmasterplan.com/view.asp?site=3752&ref=480853&b=0&type=text&tnb=29" BORDER="0" WIDTH="1" HEIGHT="1"> </td>
+
+        </tr>
+    </table>
+
+</div>
+<br><br>
+
+<table style='width:580px' cellspacing="0" cellpadding="0" border="0">
+<tr><td>
+Suche nach Sendezeit: 
+</td></tr>
+<tr><td>
+<div class="tx-saltamsplaylist-pi1">
+<form method="post" action="">
+<input type="hidden" name="id" value="">
+<input type="hidden" name="abfrage" value="ja">
+
+
+<table style='width:580px'>
+<tr><th>Datum</th><th>Uhrzeit</th></tr>
+<tr><td valign="top">
+<select name="datum">
+<option name="datum" value="Heute">Heute</option>
+<option name="datum" value="Gestern">Gestern ( 23.09.  )</option>
+<option name="datum" value="Vorgestern">Vorgestern ( 22.09.  )</option>
+<option name="datum" value="vor3tagen">vor 3 Tagen ( 21.09.  ) </option>
+<!--
+<option name="datum" value="vor4tagen">vor 4 Tagen ( 20.09.  ) </option>
+<option name="datum" value="vor5tagen">vor 5 Tagen ( 19.09.  ) </option>
+<option name="datum" value="vor6tagen">vor 6 Tagen ( 18.09.  ) </option>
+<option name="datum" value="vor7tagen">vor 1 Woche ( 17.09.  ) </option>
+-->
+</select><br /><br />
+</td>
+
+<td valign="top">
+<input type="text" size="2" name="stunde" value="21" maxlength="2">&nbsp;:<input type="text" size="2" maxlength="2" name="minute" value="32">
+&nbsp; <input type="submit" value="Abfragen">
+</td></tr>
+</form>
+</table>
+</div>
+</td></tr>
+</table>
+
+
+<br>
+<hr>
+
+
+<p>
+Alle Fragen zur Musik bei Radio Essen beantwortet Ihnen auch unsere<br />
+Service-Hotline unter 0180 - 50 80 580 (14 ct/min aus dem dt. Festnetz; Mobilfunk max 42 ct/min).
+
+</p>
+
+<style type="text/css">
+input{
+    margin-left:0px;
+}
+</style></div>
+	<!--  CONTENT ELEMENT, uid:2145/page_php_content_pi1 [end] -->
+		<!--TYPO3SEARCH_end--><br />
+<h5 class="socialheader5">Weitersagen und kommentieren</h5>
+<div id="socialshareprivacy"></div>
+
+
+	<!--
+
+		BEGIN: Content of extension "mbon_ajaxcomments", plugin "tx_mbonajaxcomments_pi1"
+
+	-->
+	<div class="tx-mbonajaxcomments-pi1">
+		
+<div class="ajax_comment_pages">
+	<div class="ajax_comment_pages_add">
+		<a href="mein-login/schreiben-sie-einen-kommentar.html?tx_mbonajaxcomments_pi2%5Bpid%5D=82">Kommentar schreiben</a>
+	</div>
+	<div class="ajax_comment_pages_list" id="ajax_comment_pages_list_target">
+		...loading...
+	</div>
+	<script type="text/javascript">
+		/*
+		function showPageComments(page) {
+			url = 'index.php?eID=mbon_ajaxcomments&mode=pages&pid=82&page='+page+'&cache='+(new Date()).getTime();
+			document.getElementById('ajax_comment_pages_list_target').innerHTML = holer_return(url);
+		}
+		showPageComments();
+		*/
+		$(document).ready(function() {
+			$('#ajax_comment_pages_list_target').load('index.php?eID=mbon_ajaxcomments&mode=pages&pid=82&cache='+(new Date()).getTime());
+		});
+	</script>
+</div>
+
+	</div>
+	
+	<!-- END: Content of extension "mbon_ajaxcomments", plugin "tx_mbonajaxcomments_pi1" -->
+
+	</div>
+			</div>
+			<div id="col3">
+				<div id="col3_content" class="clearfix">
+					<div class="floatbox">
+						
+		<!-- Output of lib.submenu.1 [begin] -->
+			<a id="navigation" name="navigation"></a>
+		<!-- Output of lib.submenu.1 [end] -->
+			<div class="searchimg"><img src="http://cf-mpg-es.mbon.de/fileadmin/gfx/direktsuche.png" width="98" height="17" border="0" alt="" /></div><div class="searchfield">
+
+
+	<!--
+
+		BEGIN: Content of extension "macina_searchbox", plugin "tx_macinasearchbox_pi1"
+
+	-->
+	<div class="tx-macinasearchbox-pi1">
+		
+<form action="service/suche.html" method="post" name="searchform" id="searchform">
+<input name="tx_indexedsearch[sword]" type="text" value="Suchbegriff eingeben..." onclick="this.value=''" style="float:left;" />
+<input type="hidden" name="tx_indexedsearch[_sections]" value="0" />
+<input type="hidden" name="tx_indexedsearch[pointer]" value="0" />
+<input type="hidden" name="tx_indexedsearch[ext]" value="0" />
+<input type="hidden" name="tx_indexedsearch[lang]" value="0" />
+<a href="javascript:void(0)" onclick="document.getElementById('searchform').submit();"><img src="http://cf-mpg-es.mbon.de/fileadmin/gfx/teaser_search.gif" style="float:left;padding-left:2px;padding-top:3px;width:12px;" onmouseover="this.src='fileadmin/gfx/teaser_search_h.gif'" onmouseout="this.src='fileadmin/gfx/teaser_search.gif'" alt="" /></a>
+</form>
+
+	</div>
+	
+	<!-- END: Content of extension "macina_searchbox", plugin "tx_macinasearchbox_pi1" -->
+
+	<script type="text/javascript">
+$(document).ready(function() {
+  $('#searchform a').html('<img src="http://cf-mpg-es.mbon.de/fileadmin/gfx/lupe.png" style="float: left; padding-left: 0px; padding-top: 0px; width: 23px; height:19px;" alt="" />');
+  $('.r_webradio img').mouseenter(function() {
+    $(this).attr('src', 'fileadmin/gfx/wradio_over.png');
+  }).mouseleave(function() {
+    $(this).attr('src', 'fileadmin/gfx/wradio.png');
+  });
+ 
+  $('.r_local img').mouseenter(function() {
+    $(this).attr('src', 'fileadmin/gfx/lnachrichten_over.png');
+  }).mouseleave(function() {
+    $(this).attr('src', 'fileadmin/gfx/lnachrichten.png');
+  });
+});
+</script></div>
+		<!-- Output of lib.submenu.10 [begin] -->
+			<ul id="submenu">
+		<!-- Output of lib.submenu.10.30 [begin] -->
+			<li><a href="home.html" target="_self" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/49d8b6fa45.png" width="150" height="17" border="0" alt="Home" /></a></li><li><a href="essen.html" target="_self" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/a94f5aad12.png" width="150" height="17" border="0" alt="Essen" /></a></li><li><a href="nrw-welt.html" target="_self" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/c8e410d445.png" width="150" height="17" border="0" alt="NRW &amp; Welt" /></a></li><li><a href="aktionen.html" target="_self" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/7ec38774ba.png" width="150" height="17" border="0" alt="Aktionen" /></a></li><li><a href="sport.html" target="_self" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/6bbaab81e5.png" width="150" height="17" border="0" alt="Sport" /></a></li><li><a href="service.html" target="_self" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/1f7d194595.png" width="150" height="17" border="0" alt="Service" /></a></li><li><a href="pottjobsde.html" target="_blank" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/25baeb542d.png" width="150" height="17" border="0" alt="POTTJOBS.DE" /></a></li><li><a href="mein-login.html" target="_self" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/81cd867639.png" width="150" height="17" border="0" alt="Mein Login" /></a></li><li><a href="videocenter.html" target="_top" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/5330cdce2d.png" width="150" height="17" border="0" alt="Videocenter" /></a></li><li><a href="comedy.html" target="_self" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/7272ec2a95.png" width="150" height="17" border="0" alt="Comedy" /></a></li><li><a href="lichtblicke.html" target="_self" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/b333fb45d5.png" width="150" height="17" border="0" alt="Lichtblicke" /></a></li><li class="cur"><a href="musik.html" target="_self" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/e52c56ef6c.png" width="150" height="17" border="0" alt="Musik" /></a></li><li><ul><li><dfn>.1: </dfn><a href="musik/playlist.html" target="_self" title="&quot;Wie hieß noch mal der Song, der heute morgen beim Frühstück im Radio lief?&quot; In unserer Playlist können Sie solchen Fragen nachgehen. Die zuletzt gespielten Songs werden angezeigt und mit unserer Suchfunktion können Sie auch nach Liedern suchen, die vor längerer Zeit gespielt wurden." class="activemenu">Playlist</a><span class="hidden">.</span></li><li><dfn>.2: </dfn><a href="musik/unbezahlbar-das-exklusive-clubkonzert-mit-cro.html" target="_self" title="Der gefragteste Panda aller Zeiten gibt für Sie ein exklusives Clubkonzert! ">Unbezahlbar – das exklusive Clubkonzert mit Cro</a><span class="hidden">.</span></li><li><dfn>.3: </dfn><a href="musik/ruhrcharts.html" target="_self" title="Hier bestimmen Sie die Top 30.">Ruhrcharts</a><span class="hidden">.</span></li><li><dfn>.4: </dfn><a href="musik/neu-in-der-musik.html" target="_self" title="Hier erfahren Sie alles zu den brandneuen Hits in unserem Programm.
+Sie haben einen Titel zum ersten Mal gehört und möchten mehr darüber erfahren? Hier lesen Sie, welche Titel und Interpreten frisch bei Radio Essen laufen. ">Neu in der Musik</a><span class="hidden">.</span></li><li><dfn>.5: </dfn><a href="musik/radio-charts.html" target="_self" title="Nicht nur für echte Fans der guten alten Hitparade. Hier finden Sie Top 30 Airplay Charts, wöchentlich ermittelt von Media Control. Unser Radio Essen Tipp: Jeden Freitag abend spielen wir genau diese Top 30 im „Soundcheck – die Charts“ ab 22 Uhr.    ">Radio-Charts</a><span class="hidden">.</span></li><li><dfn>.6: </dfn><a href="musik/musikwuensche.html" target="_self" title="Wünschen Sie sich Ihre Lieblingshits und grüßen Sie Freunde, Familienmitglieder und Bekannte.">Musikwünsche</a><span class="hidden">.</span></li><li><dfn>.7: </dfn><a href="musik/studiogaeste.html" target="_self" title="Immer wieder kommen Künstler zu uns ins Studio, geben Interviews oder spielen unplugged ihre größten Hits ein. Hier werfen wir einen Rückblick auf die vergangenen Studiogäste.">Studiogäste</a><span class="hidden">.</span></li></ul></li><li><a href="ueber-uns.html" target="_self" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/0bcf6e1b7e.png" width="150" height="17" border="0" alt="Über uns" /></a></li><li><a href="werbung.html" target="_blank" onfocus="blurLink(this);"><img src="http://cf-mpg-es.mbon.de/typo3temp/menu/d17d4f8d67.png" width="150" height="17" border="0" alt="Werbung" /></a></li>
+		<!-- Output of lib.submenu.10.30 [end] -->
+			</ul>
+		<!-- Output of lib.submenu.10 [end] -->
+			
+						<div class="selectorBox">
+		<!-- Output of lib.selectorBox [begin] -->
+			
+		<!-- Output of lib.selectorBox [end] -->
+			</div>
+						<div class="textBelowMenu"><!--TYPO3SEARCH_begin--><!--TYPO3SEARCH_end--></div>
+					</div>
+				</div>
+				<div id="ie_clearing">&nbsp;</div>
+			</div>
+		</div>
+		
+		<!-- Output of lib.footer [begin] -->
+			<div id="footer"><a href="musik/playlist.html" target="_self" title="&quot;Wie hieß noch mal der Song, der heute morgen beim Frühstück im Radio lief?&quot; In unserer Playlist können Sie solchen Fragen nachgehen. Die zuletzt gespielten Songs werden angezeigt und mit unserer Suchfunktion können Sie auch nach Liedern suchen, die vor längerer Zeit gespielt wurden.">Playlist</a> &#124;&nbsp;<a href="musik/unbezahlbar-das-exklusive-clubkonzert-mit-cro.html" target="_self" title="Der gefragteste Panda aller Zeiten gibt für Sie ein exklusives Clubkonzert! ">Unbezahlbar – das exklusive Clubkonzert mit Cro</a> &#124;&nbsp;<a href="musik/ruhrcharts.html" target="_self" title="Hier bestimmen Sie die Top 30.">Ruhrcharts</a> &#124;&nbsp;<a href="musik/neu-in-der-musik.html" target="_self" title="Hier erfahren Sie alles zu den brandneuen Hits in unserem Programm.
+Sie haben einen Titel zum ersten Mal gehört und möchten mehr darüber erfahren? Hier lesen Sie, welche Titel und Interpreten frisch bei Radio Essen laufen. ">Neu in der Musik</a> &#124;&nbsp;<a href="musik/radio-charts.html" target="_self" title="Nicht nur für echte Fans der guten alten Hitparade. Hier finden Sie Top 30 Airplay Charts, wöchentlich ermittelt von Media Control. Unser Radio Essen Tipp: Jeden Freitag abend spielen wir genau diese Top 30 im „Soundcheck – die Charts“ ab 22 Uhr.    ">Radio-Charts</a> &#124;&nbsp;<a href="musik/musikwuensche.html" target="_self" title="Wünschen Sie sich Ihre Lieblingshits und grüßen Sie Freunde, Familienmitglieder und Bekannte.">Musikwünsche</a> &#124;&nbsp;<a href="musik/studiogaeste.html" target="_self" title="Immer wieder kommen Künstler zu uns ins Studio, geben Interviews oder spielen unplugged ihre größten Hits ein. Hier werfen wir einen Rückblick auf die vergangenen Studiogäste.">Studiogäste</a><br /><br /><a href="nicht-im-menue/impressum.html" target="_self" title="Wer sind die Verantwortlichen von Radio Essen? Hier geht es zum Impressum unseres Senders.    ">Impressum</a><br /><br /><a href="nicht-im-menue/impressum/allgemeine-gewinnspielbedingungen.html" target="_self">Allgemeine Gewinnspielbedingungen</a> &#124;&nbsp;<a href="nicht-im-menue/impressum/datenschutz-online-werbung.html" target="_self">Datenschutz Online-Werbung</a> &#124;&nbsp;<a href="nicht-im-menue/impressum/datenschutz-messverfahren.html" target="_self">Datenschutz Messverfahren</a> &#124;&nbsp;<a href="nicht-im-menue/impressum/rechtliche-hinweise-videoportal.html" target="_self">Rechtliche Hinweise Videoportal</a> &#124;&nbsp;<a href="nicht-im-menue/impressum/teilnahmebedingungen-hoerergalerie.html" target="_self">Teilnahmebedingungen Hörergalerie</a> &#124;&nbsp;<a href="nicht-im-menue/impressum/nutzungsbasierte-onlinewerbung.html" target="_blank">Nutzungsbasierte Onlinewerbung</a><br /><br />&copy Radio Essen 2014
+<!-- Piwik -->
+<script type="text/javascript">
+var pkBaseURL = (("https:" == document.location.protocol) ? "https://piwik.wwwcenter.de/" : "http://piwik.wwwcenter.de/");
+document.write(unescape("%3Cscript src='" + pkBaseURL + "piwik.js' type='text/javascript'%3E%3C/script%3E"));
+</script><script type="text/javascript">
+try {
+var piwikTracker = Piwik.getTracker(pkBaseURL + "piwik.php", 17);
+piwikTracker.trackPageView();
+piwikTracker.enableLinkTracking();
+} catch( err ) {}
+</script><noscript><p><img src="http://piwik.wwwcenter.de/piwik.php?idsite=17" style="border:0" alt="" /></p></noscript>
+<!-- End Piwik Tracking Code -->
+
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-25761712-1']);
+  _gaq.push (['_gat._anonymizeIp']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script></div>
+		<!-- Output of lib.footer [end] -->
+			
+	</div>
+</div>
+
+	<!--  CONTENT ELEMENT, uid:2377/html [begin] -->
+		<a name="c2377"></a><div id="c2377" class="csc-default">
+		<!--  Raw HTML content: [begin] -->
+			<style type="text/css">
+td {
+    padding: 0;
+}
+</style>
+
+<!-- AdCall/Tag: SKYSCRAPER Start -->
+<div id="adsd_skyscraper" style="position: absolute; top: 90px; left: 838px; z-index:999;">
+<!------- Start of OMSV - Javascript Format , size : 120x600 ------>
+<script language="JavaScript" type="text/javascript">
+   if(typeof(WLRCMD)=="undefined"){var WLRCMD="";}
+   if(typeof(rmsi_random)=="undefined"){var rmsi_random=Math.floor(Math.random()*10000000000)}
+   document.write('<scr'+'ipt language="JavaScript" src="http://ad.de.doubleclick.net/adj/rmsi.1022radioessen.de/musik;rmsi=musik;nielsen=2;'+WLRCMD+';sz=120x600;tile=2;ord='+rmsi_random+'?"><\/scr'+'ipt>');
+</script><noscript>
+<a href="http://ad.de.doubleclick.net/jump/rmsi.1022radioessen.de/musik;rmsi=musik;nielsen=2;sz=120x600;tile=2;ord=468029769535?" target="_blank">
+<img src="http://ad.de.doubleclick.net/ad/rmsi.1022radioessen.de/musik;rmsi=musik;nielsen=2;sz=120x600;tile=2;ord=468029769535?" border="0" width="120" height="600" alt="" />
+</a></noscript>
+<!------- End of OMSV Tag - Javascript Format, size : 120x600 ------>
+</div>
+<!-- AdCall/Tag: SKYSCRAPER Ende-->
+		<!--  Raw HTML content: [end] -->
+			</div>
+	<!--  CONTENT ELEMENT, uid:2377/html [end] -->
+		
+	<!--  CONTENT ELEMENT, uid:7010/html [begin] -->
+		<a name="c7010"></a><div id="c7010" class="csc-default">
+		<!--  Raw HTML content: [begin] -->
+			<!-- Google-AdSense Start -->
+<div id="google_adsense" style="position: absolute; top: 700px; left: 838px; z-index:999;">
+<script type="text/javascript"><!--
+google_ad_client = "ca-pub-3088677864551805";
+/* Template-Banner Wide-Skyscraper */
+google_ad_slot = "2597678806";
+google_ad_width = 160;
+google_ad_height = 600;
+//-->
+</script>
+<script type="text/javascript" src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+</script>
+</div>
+<!-- Google-AdSense Ende-->
+		<!--  Raw HTML content: [end] -->
+			</div>
+	<!--  CONTENT ELEMENT, uid:7010/html [end] -->
+		
+	<!--  CONTENT ELEMENT, uid:10044/html [begin] -->
+		<a name="c10044"></a><div id="c10044" class="csc-default">
+		<!--  Raw HTML content: [begin] -->
+			<script type="text/javascript" src="http://www.beead.net/api/choixPubJS.htm?pid=912&amp;screenLayer=1&amp;mode=NONE&amp;home=http://www.radioessen.de"> </script>
+		<!--  Raw HTML content: [end] -->
+			</div>
+	<!--  CONTENT ELEMENT, uid:10044/html [end] -->
+
+
+
+
+</body>
+</html>
