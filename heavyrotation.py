@@ -54,10 +54,10 @@ def get_playlist(sender):
 
         try:
             daten = mod.parse_playlist(data)
-        except:
+        except Exception, e:
             date_string = strftime("%Y-%m-%d-%H-%M")
             fh = open('./error/error_' + sender + '_' + date_string, 'w')
-            fh.write('xx' + data)
+            fh.write(str(e) +"\n-------------------------------------------------\n"+ data)
             fh.close()
             daten = ''
         if daten:
