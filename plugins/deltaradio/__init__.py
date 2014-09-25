@@ -17,13 +17,9 @@ def parse_playlist(data):
         title = entry.plain_title
         duration = entry.duration
 
-        try:
-            title = title.decode('unicode-escape').title()
-            artist = artist.decode('unicode-escape').title()
-        except:
-            f = open('error_delta', 'w')
-            f.write(data)
-            f.close()
+        title = title.decode('unicode-escape').title()
+        artist = artist.decode('unicode-escape').title()
+        
         playlist.append(
             {'date': date, 'time': time, 'artist': artist, 'title': title, 'duration': duration})
     return reversed(playlist)

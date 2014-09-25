@@ -8,6 +8,7 @@ import importlib
 from ConfigParser import SafeConfigParser
 from lxml import html
 import sqlite3 as sqlite
+from time import strftime
 
 
 def get_config_list():
@@ -50,8 +51,13 @@ def get_playlist(sender):
 
         mod = importlib.import_module("plugins." + sender)
 
-        daten = mod.parse_playlist(data)
-        
+        try:
+            daten = mod.parse_playlist(data)
+        except:
+            date_string = time.strftime("%Y-%m-%d-%H:%M")
+            fh = open('./error/error_' + sender + '_' + date_string, 'w')
+            fh.write(data)
+            fh.close()
         if daten:
             if not args.printonly:
                 if not os.path.isfile(args.database):

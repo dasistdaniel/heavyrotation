@@ -25,13 +25,9 @@ def parse_playlist(data):
                 d = parse(str(time))
                 date = d.strftime('%Y-%m-%d')
                 time = d.strftime('%H:%M:%S')
-            try:
-                title = title.decode('unicode-escape').title()
-                artist = artist.decode('unicode-escape').title()
-            except:
-                f = open('error_delta', 'w')
-                f.write(data)
-                f.close()
+
+            title = title.decode('unicode-escape').title()
+            artist = artist.decode('unicode-escape').title()
 
             playlist.append(
                 {'date': date, 'time': time, 'artist': artist, 'title': title, 'duration': duration})
