@@ -48,16 +48,18 @@ def get_playlist(sender):
                 config['url'],
                 config['playlist_url_search'])
         data = get_html(config['playlist_url'])
+   
 
         mod = importlib.import_module("plugins." + sender)
 
         try:
             daten = mod.parse_playlist(data)
         except:
-            date_string = time.strftime("%Y-%m-%d-%H:%M")
+            date_string = strftime("%Y-%m-%d-%H-%M")
             fh = open('./error/error_' + sender + '_' + date_string, 'w')
-            fh.write(data)
+            fh.write('xx' + data)
             fh.close()
+            daten = ''
         if daten:
             if not args.printonly:
                 if not os.path.isfile(args.database):
