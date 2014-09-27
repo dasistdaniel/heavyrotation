@@ -61,7 +61,10 @@ def get_playlist(sender):
             print e
             date_string = strftime("%Y-%m-%d-%H-%M")
             fh = open('./error/error_' + sender + '_' + date_string, 'w')
-            fh.write(str(e) +"\n-------------------------------------------------\n"+ data)
+            fh.write(str(e))
+            fh.write(str(Exception))
+            fh.write("-------------------------------------------------")
+            fh.write(data.encode('utf-8'))
             fh.close()
             daten = ''
         if daten:
@@ -89,8 +92,18 @@ def search_playlist_url(url, search):
 
 
 def get_html(url):
-    return urllib2.urlopen(url).read()
-
+    req = urllib2.Request(url, )
+    response = urllib2.urlopen(req)
+    the_page = response.read()
+    encoding =  response.info().getheader('Content-Type').split('=')[-1]
+    print url, encoding
+    try:
+        the_page = the_page.decode(encoding)
+    except:
+        the_page = the_page
+    
+    return the_page
+    #return urllib2.urlopen(url).read().decode('utf-8')
 
 def database_create():
     print "lege neue db an"
