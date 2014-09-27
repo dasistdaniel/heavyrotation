@@ -9,7 +9,7 @@ from datetime import date as dt
 def parse_playlist(data):
     playlist = []
 
-    root = html.fromstring(data)
+    root = html.fromstring(data.encode('utf-8'))
 
     for x in range(2, 6):
         date = dt.today().strftime('%Y-%m-%d')

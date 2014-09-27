@@ -52,7 +52,7 @@ def get_playlist(sender):
 
         mod = importlib.import_module("plugins." + sender)
 
-        
+        #daten = mod.parse_playlist(data)
         try:
             daten = mod.parse_playlist(data)
         except Exception, e:

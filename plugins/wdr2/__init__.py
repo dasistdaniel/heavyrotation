@@ -8,7 +8,7 @@ from datetime import date as dt
 def parse_playlist(data):
     playlist = []
 
-    root = html.fromstring(data)
+    root = html.fromstring(data.encode('utf-8'))
     laenge = root.xpath(".//*[@id='searchPlaylistResult']/tbody/tr")
 
     for x in range(1, len(laenge)):
