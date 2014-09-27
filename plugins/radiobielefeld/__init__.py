@@ -13,12 +13,19 @@ def parse_playlist(data):
 
     for x in range(2, 6):
         date = dt.today().strftime('%Y-%m-%d')
-        time = root.xpath('//div[contains(@class, "playlist")]/table/tr['+str(x)+']/td[1]/text()')[0]
-        title =  root.xpath('//div[contains(@class, "playlist")]/table/tr['+str(x)+']/td[4]/text()')[0]
-        artist =  root.xpath('//div[contains(@class, "playlist")]/table/tr['+str(x)+']/td[3]/text()')[0]
-        duration_ =  root.xpath('//div[contains(@class, "playlist")]/table/tr['+str(x)+']/td[2]/text()')[0].split(':')
-        duration = int(duration_[0])*60*60 + int(duration_[1])*60 + int(duration_[2])
-        
+        try:
+            time = root.xpath('//div[contains(@class, "playlist")]/table/tr['+str(x)+']/td[1]/text()')[0]
+            title =  root.xpath('//div[contains(@class, "playlist")]/table/tr['+str(x)+']/td[4]/text()')[0]
+            artist =  root.xpath('//div[contains(@class, "playlist")]/table/tr['+str(x)+']/td[3]/text()')[0]
+            duration_ =  root.xpath('//div[contains(@class, "playlist")]/table/tr['+str(x)+']/td[2]/text()')[0].split(':')
+            duration = int(duration_[0])*60*60 + int(duration_[1])*60 + int(duration_[2])
+        except:
+            date = ''
+            time = ''
+            artist = ''
+            title = ''
+            duration = ''
+         
         if duration < 60:
             duration = ''
             
