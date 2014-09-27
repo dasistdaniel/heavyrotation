@@ -4,7 +4,7 @@
 
 from lxml import html
 from datetime import date as dt
-from dateutil.parser import parse
+#from dateutil.parser import parse
 
 def parse_playlist(data):
     playlist = []
@@ -22,10 +22,11 @@ def parse_playlist(data):
             duration = ''
             
             if 'CEST' in time:
-                d = parse(str(time))
-                date = d.strftime('%Y-%m-%d')
-                time = d.strftime('%H:%M:%S')
-
+                # d = parse(str(time))
+                # date = d.strftime('%Y-%m-%d')
+                # time = d.strftime('%H:%M:%S')
+                time = time.split(' ')[3]
+                
             title = title.decode('unicode-escape').title()
             artist = artist.decode('unicode-escape').title()
 

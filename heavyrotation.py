@@ -8,7 +8,7 @@ import importlib
 from ConfigParser import SafeConfigParser
 from lxml import html
 import sqlite3 as sqlite
-from time import strftime
+from time import strftime,sleep
 
 
 def get_config_list():
@@ -57,6 +57,7 @@ def get_playlist(sender):
             daten = mod.parse_playlist(data)
         except Exception, e:
             print sender
+            print config['playlist_url']
             print Exception
             print e
             date_string = strftime("%Y-%m-%d-%H-%M")
@@ -96,7 +97,7 @@ def get_html(url):
     response = urllib2.urlopen(req)
     the_page = response.read()
     encoding =  response.info().getheader('Content-Type').split('=')[-1]
-    print url, encoding
+    #print url, encoding
     try:
         the_page = the_page.decode(encoding)
     except:
@@ -187,7 +188,8 @@ def database_save(sender, daten):
                     data['time']))
             print '[n] %s [%s - %s] %s - %s [%s]' % (sender, data['date'], data['time'], data['artist'], data['title'], data['duration'])
         else:
-            print '[o] %s [%s - %s] %s - %s [%s]' % (sender, data['date'], data['time'], data['artist'], data['title'], data['duration'])
+            if not args.loop:
+                print '[o] %s [%s - %s] %s - %s [%s]' % (sender, data['date'], data['time'], data['artist'], data['title'], data['duration'])
 
     conn.commit()
     conn.close()
@@ -216,12 +218,15 @@ if __name__ == '__main__':
         help=u'Daten nur anzeigen, nicht in der Datenbank speichern',
         action='store_true')
     parser.add_argument(
-        '-d',
+        '-db',
         '--database',
         help=u'Welche Datenbank Datei soll genutzt werden.',
         action='store',
         default='database/heavyrotation.sqlite')
-
+    parser.add_argument(
+        '--loop',
+        help=u'Loop. Warte X Sekunden bis zum erneuten abfragen',
+        action='store_true')
     args = parser.parse_args()
 
     if len(args.sender) != 0:
@@ -235,6 +240,16 @@ if __name__ == '__main__':
         for sender in configs_descriptions:
             playlist = get_playlist(sender['shortname'])
         sys.exit()
+
+    if args.loop:
+        configs = get_config_list()
+        configs_descriptions = get_configs(configs)
+        
+        while True:
+            for sender in configs_descriptions:
+                playlist = get_playlist(sender['shortname'])
+            print "Warte 5 Minuten"
+            sleep(300)
 
     if args.list:
         print u'Verfügbare Sender:'
