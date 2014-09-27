@@ -11,7 +11,7 @@ def parse_playlist(data):
     root = html.fromstring(data)
 
     laenge = len(root.xpath('//tr'))
-    for x in range(3, laenge):
+    for x in range(3, laenge-1):
         date_ = root.xpath("//tr["+str(x)+"]/td[1]/text()")[0].split('.')
         date = date_[2] + "-" + date_[1] + "-" + date_[0]
         time = root.xpath("//tr["+str(x)+"]/td[2]/text()")[0] + ':00'
