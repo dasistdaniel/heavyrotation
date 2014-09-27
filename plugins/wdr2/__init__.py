@@ -18,10 +18,8 @@ def parse_playlist(data):
         title = root.xpath(".//*[@id='searchPlaylistResult']/tbody/tr["+str(x)+"]/td[1]/text()")[0].strip()
         artist =  root.xpath(".//*[@id='searchPlaylistResult']/tbody/tr["+str(x)+"]/td[1]/strong/text()")[0]
         duration = ''
-        
-        title = title.decode('unicode-escape').title()
-        artist = artist.decode('unicode-escape').title()
-        
-        playlist.append(
-            {'date': date, 'time': time, 'artist': artist, 'title': title, 'duration': duration})
+   
+
+        if len(title) > 0 and len(artist) > 0:
+            playlist.append({'date': date, 'time': time, 'artist': artist, 'title': title, 'duration': duration})
     return reversed(playlist)
