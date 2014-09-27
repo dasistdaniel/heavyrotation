@@ -55,6 +55,7 @@ def get_playlist(sender):
         try:
             daten = mod.parse_playlist(data)
         except Exception, e:
+            print sender
             print Exception
             print e
             date_string = strftime("%Y-%m-%d-%H-%M")
