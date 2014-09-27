@@ -9,6 +9,7 @@ from ConfigParser import SafeConfigParser
 from lxml import html
 import sqlite3 as sqlite
 from time import strftime,sleep
+from threading import Thread
 
 
 def get_config_list():
@@ -238,7 +239,9 @@ if __name__ == '__main__':
         configs = get_config_list()
         configs_descriptions = get_configs(configs)
         for sender in configs_descriptions:
-            playlist = get_playlist(sender['shortname'])
+            t = Thread(target=get_playlist, args=(sender['shortname'],))
+            t.start()
+            #playlist = get_playlist(sender['shortname'])
         sys.exit()
 
     if args.loop:
@@ -247,7 +250,9 @@ if __name__ == '__main__':
         
         while True:
             for sender in configs_descriptions:
-                playlist = get_playlist(sender['shortname'])
+                t = Thread(target=get_playlist, args=(sender['shortname'],))
+                t.start()
+                #playlist = get_playlist(sender['shortname'])
             print "Warte 5 Minuten"
             sleep(300)
 
