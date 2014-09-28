@@ -27,8 +27,8 @@ def parse_playlist(data):
                 # time = d.strftime('%H:%M:%S')
                 time = time.split(' ')[3]
                 
-            title = title.decode('unicode-escape').title()
-            artist = artist.decode('unicode-escape').title()
+            #title = title.decode('unicode-escape').title()
+            #artist = artist.decode('unicode-escape').title()
 
             playlist.append(
                 {'date': date, 'time': time, 'artist': artist, 'title': title, 'duration': duration})

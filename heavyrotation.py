@@ -252,9 +252,9 @@ if __name__ == '__main__':
         
         while True:
             for sender in configs_descriptions:
-                t = Thread(target=get_playlist, args=(sender['shortname'],))
-                t.start()
-                #playlist = get_playlist(sender['shortname'])
+                #t = Thread(target=get_playlist, args=(sender['shortname'],))
+                #t.start()
+                playlist = get_playlist(sender['shortname'])
             print "Warte 5 Minuten"
             sleep(300)
 
