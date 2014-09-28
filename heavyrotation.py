@@ -140,6 +140,8 @@ def database_save(sender, daten):
         sender_id = sender_exist[0]
 
     for data in daten:
+        data['title'] = data['title'].title()
+        data['artist'] = data['artist'].title()
         c.execute(
             'SELECT id FROM playlist WHERE sender_id = ? AND date = ? AND time = ?',
             (sender_id,
