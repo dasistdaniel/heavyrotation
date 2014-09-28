@@ -13,7 +13,8 @@ def parse_playlist(data):
 
     for x in range(1, len(laenge)):
         date_time = root.xpath(".//*[@id='searchPlaylistResult']/tbody/tr["+str(x)+"]/th/text()")
-        date = date_time[0].replace('.','-')[0:9]
+        date_ = date_time[0].replace('.','-')[0:10].split('-')
+        date = date_[2] + "-" + date_[1] + "-" + date_[0]
         time = date_time[1].replace('.',':')[0:5]+":00"
         title = root.xpath(".//*[@id='searchPlaylistResult']/tbody/tr["+str(x)+"]/td[1]/text()")[0].strip()
         artist =  root.xpath(".//*[@id='searchPlaylistResult']/tbody/tr["+str(x)+"]/td[1]/strong/text()")[0]
