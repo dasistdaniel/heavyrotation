@@ -95,10 +95,14 @@ def search_playlist_url(url, search):
 
 def get_html(url):
     req = urllib2.Request(url, )
-    response = urllib2.urlopen(req)
-    the_page = response.read()
+    try:
+        response = urllib2.urlopen(req)
+        the_page = response.read()
+    except HTTPError as e:
+        the_page = e.read()
+
     encoding =  response.info().getheader('Content-Type').split('=')[-1]
-    #print url, encoding
+    print url, encoding
     try:
         the_page = the_page.decode(encoding)
     except:
