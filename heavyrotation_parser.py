@@ -1,17 +1,21 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from lxml import html
+from lxml import html,etree
 from dateutil import parser
 from datetime import datetime
 
-def parse_playlist(playlist_url, xpath):
+def parse_playlist(playlist_url, type, xpath):
     playlist = []
-    root = html.parse(playlist_url)
+    if type == 'html':
+        root = html.parse(playlist_url)
+    elif type == 'xml':
+        root = etree.parse(playlist_url)
     
     count_to = int(root.xpath(xpath['count_to'])) + 1
     
     count_from = int(xpath['count_from'])
     if count_to > 0:
+        print count_to
         for x in reversed(range(count_from, count_to)):
             time_ = parser.parse(root.xpath(construct_xpath(xpath['time'],x))[0])
             

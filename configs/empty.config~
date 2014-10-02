@@ -4,6 +4,7 @@ dbname =
 kurzbeschreibung =
 url =
 playlist_url =
+type =
 
 [xpath]
 count_from =
