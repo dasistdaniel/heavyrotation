@@ -2,7 +2,6 @@
 # -*- coding: utf-8 -*-
 from lxml import html,etree
 from dateutil import parser
-from datetime import datetime
 
 def parse_playlist(playlist_url, type, xpath):
     playlist = []
@@ -15,7 +14,6 @@ def parse_playlist(playlist_url, type, xpath):
     
     count_from = int(xpath['count_from'])
     if count_to > 0:
-        print count_to
         for x in reversed(range(count_from, count_to)):
             time_ = parser.parse(root.xpath(construct_xpath(xpath['time'],x))[0])
             
@@ -26,6 +24,8 @@ def parse_playlist(playlist_url, type, xpath):
             
             if xpath['duration']:
                 duration = root.xpath(construct_xpath(xpath['duration'],x))[0]
+                if not ':' in duration:
+                    duration = duration_convert(int(duration))
             else:
                 duration = ''
             
@@ -34,3 +34,8 @@ def parse_playlist(playlist_url, type, xpath):
     
 def construct_xpath(string, counter):
     return string.replace('%counter%', str(counter)) + '/text()'
+    
+def duration_convert(seconds):
+    m, s = divmod(seconds, 60)
+    h, m = divmod(m, 60)
+    return "%02d:%02d:%02d" % (h, m, s)
