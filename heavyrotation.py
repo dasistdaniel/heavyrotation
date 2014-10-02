@@ -3,9 +3,9 @@
 import argparse
 from time import sleep
 
-import heavyrotation_configs as configs
-import heavyrotation_parser as pp
-import heavyrotation_database as database
+import heavyrotation_configs as hr_configs
+import heavyrotation_parser as hr_parser
+import heavyrotation_database as hr_database
 
 def print_list(settings):
     config =  {}
@@ -37,33 +37,33 @@ if __name__ == '__main__':
     args = parser.parse_args()
 
     if args.list:
-        config_files = configs.list_configs()
-        config_settings = configs.read_configs(config_files)
+        config_files = hr_configs.list_configs()
+        config_settings = hr_configs.read_configs(config_files)
         print_list(config_settings)
         
     if args.stations:
         for station in args.stations:
             station = station + '.config'
-            config = configs.read_configs([station])[station]
-            playlist_data = pp.parse_playlist(config['settings']['playlist_url'], config['xpath'])
+            config = hr_configs.read_configs([station])[station]
+            playlist_data = hr_parser.parse_playlist(config['settings']['playlist_url'], config['xpath'])
 
-            database.database_save(config['settings']['dbname'], playlist_data, args.database)
+            hr_database.database_save(config['settings']['dbname'], playlist_data, args.database)
     
     if args.all:
-        config_files = configs.list_configs()
+        config_files = hr_configs.list_configs()
         for config_file in config_files:
-            config = configs.read_configs([config_file])[config_file]
-            playlist_data = pp.parse_playlist(config['settings']['playlist_url'], config['xpath'])
+            config = hr_configs.read_configs([config_file])[config_file]
+            playlist_data = hr_parser.parse_playlist(config['settings']['playlist_url'], config['xpath'])
 
-            database.database_save(config['settings']['dbname'], playlist_data, args.database)
+            hr_database.database_save(config['settings']['dbname'], playlist_data, args.database)
             
     if args.loop:
-        config_files = configs.list_configs()
+        config_files = hr_configs.list_configs()
         while True:
             for config_file in config_files:
-                config = configs.read_configs([config_file])[config_file]
-                playlist_data = pp.parse_playlist(config['settings']['playlist_url'], config['xpath'])
+                config = hr_configs.read_configs([config_file])[config_file]
+                playlist_data = hr_parser.parse_playlist(config['settings']['playlist_url'], config['xpath'])
 
-                database.database_save(config['settings']['dbname'], playlist_data, args.database)
+                hr_database.database_save(config['settings']['dbname'], playlist_data, args.database)
             print 'wait for 5 minutes'
             sleep(300)
