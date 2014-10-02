@@ -1,0 +1,14 @@
+[settings]
+sendername =
+dbname =
+kurzbeschreibung =
+url =
+playlist_url =
+
+[xpath]
+count_from =
+count_to =
+time =
+artist =
+title =
+duration = 
