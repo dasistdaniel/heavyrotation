@@ -7,6 +7,12 @@ into a Database
 
 Changelog
 =============
+v 0.5
+added plugin system back in
+oh and btw 
+I HATE ENCODING ERRORS!!!
+
+
 v 0.4
 added new type to config
 now you can html and xml

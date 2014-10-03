@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import argparse
 from time import sleep
+import importlib
 
 import heavyrotation_configs as hr_configs
 import heavyrotation_parser as hr_parser
@@ -25,13 +26,17 @@ def calc_tabs(string):
         
 def get_playlist(config_file):
     config = hr_configs.read_configs([config_file])[config_file]
-    playlist_data = hr_parser.parse_playlist(config['settings']['playlist_url'], config['settings']['type'], config['xpath'])
-
+    if not config['settings']['type'] == 'plugin_html' or config['settings']['type'] == 'plugin_xml':
+        playlist_data = hr_parser.parse_playlist(config['settings']['playlist_url'], config['settings']['type'], config['xpath'],None)
+    else:
+        plugin = importlib.import_module("plugins." + config['settings']['plugin'])
+        playlist_data = plugin.parse_playlist(config['settings']['playlist_url'], config['settings']['type'], config['xpath'], None)
+        
     hr_database.database_save(config['settings']['dbname'], playlist_data, args.database)
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(__file__, description='heavyrotation, get data of played songs from differnt radio station websites', epilog='programmed by dasistdaniel')
-    parser.add_argument('--version', action='version', version='%(prog)s 0.4')
+    parser.add_argument('--version', action='version', version='%(prog)s 0.5')
     parser.add_argument('stations', help=u'which station config should be loaded? See --list', nargs='*')
     parser.add_argument('-l', '--list', help='list all stations', action='store_true')
     parser.add_argument('-a', '--all', help=u'use all availabe station', action='store_true')

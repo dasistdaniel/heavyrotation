@@ -65,9 +65,15 @@ def database_save(sender, daten,db_file):
                     c.execute('UPDATE title SET duration = ? WHERE id = ?', (data['duration'], title_id,))
 
             c.execute('INSERT INTO playlist (sender_id, title_id, date, time) VALUES (?, ?, ?, ?)', (sender_id, title_id, data['date'], data['time']))
-            print '[n] %s [%s - %s] %s - %s [%s]' % (sender, data['date'], data['time'], data['artist'], data['title'], data['duration'])
+            try:
+                print u'[n] %s [%s - %s] %s - %s [%s]' % (sender, data['date'], data['time'], data['artist'], data['title'], data['duration'])
+            except:
+                print 'i hate unicode'
         else:
-            print '[o] %s [%s - %s] %s - %s [%s]' % (sender, data['date'], data['time'], data['artist'], data['title'], data['duration'])
+            try:
+                print u'[o] %s [%s - %s] %s - %s [%s]' % (sender, data['date'], data['time'], data['artist'], data['title'], data['duration'])
+            except:
+                print 'i hate unicode'
 
     conn.commit()
     conn.close()
