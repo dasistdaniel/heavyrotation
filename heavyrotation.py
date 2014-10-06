@@ -27,10 +27,10 @@ def calc_tabs(string):
 def get_playlist(config_file):
     config = hr_configs.read_configs([config_file])[config_file]
     if not config['settings']['type'] == 'plugin_html' or config['settings']['type'] == 'plugin_xml':
-        playlist_data = hr_parser.parse_playlist(config['settings']['playlist_url'], config['settings']['type'], config['xpath'],None)
+        playlist_data = hr_parser.parse_playlist(config['settings'], config['xpath'],None)
     else:
         plugin = importlib.import_module("plugins." + config['settings']['plugin'])
-        playlist_data = plugin.parse_playlist(config['settings']['playlist_url'], config['settings']['type'], config['xpath'], None)
+        playlist_data = plugin.parse_playlist(config['settings'], config['xpath'], None)
         
     hr_database.database_save(config['settings']['dbname'], playlist_data, args.database)
 
@@ -53,17 +53,26 @@ if __name__ == '__main__':
     if args.stations:
         for station in args.stations:
             config_file = station + '.config'
-            get_playlist(config_file)
+            try:
+                get_playlist(config_file)
+            except:
+                print "Could not parse Station: " + station
             
     if args.all:
         config_files = hr_configs.list_configs()
         for config_file in config_files:
-            get_playlist(config_file)
+            try:
+                get_playlist(config_file)
+            except:
+                print "Could not parse Station: " + config_file
             
     if args.loop:
         config_files = hr_configs.list_configs()
         while True:
             for config_file in config_files:
-                get_playlist(config_file)
+                try:
+                    get_playlist(config_file)
+                except:
+                    print "Could not parse Station: " + config_file
             print 'wait for 5 minutes'
             sleep(300)

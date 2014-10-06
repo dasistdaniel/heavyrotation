@@ -3,7 +3,10 @@
 from lxml import html,etree
 from dateutil import parser
 
-def parse_playlist(playlist_url, type, xpath, html_source):
+def parse_playlist(settings, xpath, html_source):
+    playlist_url = settings['playlist_url']
+    type = settings['type']
+    
     playlist = []
     if type == 'html':
         root = html.parse(playlist_url)
