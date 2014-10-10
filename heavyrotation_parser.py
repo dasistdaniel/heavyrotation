@@ -25,20 +25,21 @@ def parse_playlist(settings, xpath, html_source):
     
     if count_to > 0:
         for x in reversed(range(count_from, count_to)):
-            time_ = root.xpath(construct_xpath(xpath['time'],x))[0].replace('Uhr','')
-            time_ = parser.parse(time_)
-            
-            date = time_.strftime('%Y-%m-%d')
-            time = time_.strftime('%H:%M:%S')
-            artist = root.xpath(construct_xpath(xpath['artist'],x))[0]
-            title = root.xpath(construct_xpath(xpath['title'],x))[0]
-
-            if xpath['duration']:
-                duration = root.xpath(construct_xpath(xpath['duration'],x))[0]
-                if not ':' in duration:
-                    duration = duration_convert(int(duration))
-            else:
-                duration = ''
+            try:
+                time_ = root.xpath(construct_xpath(xpath['time'],x))[0].replace('Uhr','')
+                time_ = parser.parse(time_)
+                date = time_.strftime('%Y-%m-%d')
+                time = time_.strftime('%H:%M:%S')
+                artist = root.xpath(construct_xpath(xpath['artist'],x))[0]
+                title = root.xpath(construct_xpath(xpath['title'],x))[0]
+                if xpath['duration']:
+                    duration = root.xpath(construct_xpath(xpath['duration'],x))[0]
+                    if not ':' in duration:
+                        duration = duration_convert(int(duration))
+                else:
+                    duration = ''
+            except:
+                continue
             
             playlist.append({'date': date, 'time': time, 'artist': artist, 'title': title, 'duration': duration})
     return playlist

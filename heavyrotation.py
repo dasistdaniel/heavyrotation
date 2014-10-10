@@ -8,6 +8,8 @@ import heavyrotation_configs as hr_configs
 import heavyrotation_parser as hr_parser
 import heavyrotation_database as hr_database
 
+import sys
+
 def print_list(settings):
     config =  {}
     for setting in settings:
@@ -56,6 +58,8 @@ if __name__ == '__main__':
             try:
                 get_playlist(config_file)
             except:
+                e = sys.exc_info()
+                print e 
                 print "Could not parse Station: " + station
             
     if args.all:
