@@ -33,6 +33,8 @@ these Artist gets at least two places in the Database.
 
 - do some more Logging
 
+- add a debugging mode 
+
 - fix all errors :)
 
 
