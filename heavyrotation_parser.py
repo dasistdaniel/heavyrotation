@@ -25,7 +25,7 @@ def parse_playlist(settings, xpath, html_source):
     
     if count_to > 0:
         for x in reversed(range(count_from, count_to)):
-            print x
+            #print x
             try:
                 time_ = root.xpath(construct_xpath(xpath['time'],x))[0].replace('Uhr','')
                 time_ = parser.parse(time_)
@@ -47,7 +47,7 @@ def parse_playlist(settings, xpath, html_source):
     
 def construct_xpath(string, counter):
     xpath = string.replace('%counter%', str(counter)) + '/text()'
-    print xpath
+    #print xpath
     return xpath
     
 def duration_convert(seconds):
