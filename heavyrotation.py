@@ -55,6 +55,8 @@ if __name__ == '__main__':
     if args.stations:
         for station in args.stations:
             config_file = station + '.config'
+            get_playlist(config_file)
+
             try:
                 get_playlist(config_file)
             except:

@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 from lxml import html,etree
 from dateutil import parser
+import datetime
 
 def parse_playlist(settings, xpath, html_source):
     playlist_url = settings['playlist_url']
@@ -29,6 +30,7 @@ def parse_playlist(settings, xpath, html_source):
             try:
                 time_ = root.xpath(construct_xpath(xpath['time'],x))[0].replace('Uhr','')
                 time_ = parser.parse(time_)
+		today = datetime.datetime.today()
                 date = time_.strftime('%Y-%m-%d')
                 time = time_.strftime('%H:%M:%S')
                 artist = root.xpath(construct_xpath(xpath['artist'],x))[0]
@@ -41,7 +43,12 @@ def parse_playlist(settings, xpath, html_source):
                     duration = ''
             except:
                 continue
-            
+	    #print int(today.strftime('%s')) - int(time_.strftime('%s'))
+            timestamp_diff = int(today.strftime('%s')) - int(time_.strftime('%s'))
+            print "timestamp ",timestamp_diff
+            if timestamp_diff < 0:
+                date = (today - datetime.timedelta(days=1)).date()
+		#date = time_.strftime('%Y-%m-%d')
             playlist.append({'date': date, 'time': time, 'artist': artist, 'title': title, 'duration': duration})
     return playlist
     
