@@ -9,7 +9,7 @@ def database_create(db_file):
     conn = sqlite.connect(db_file)
     c = conn.cursor()
 
-    c.execute('''CREATE TABLE `title` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,`title` TEXT NOT NULL,`artist` INTEGER NOT NULL,`duration` INTEGER);''')
+    c.execute('''CREATE TABLE `title` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT,`title` TEXT NOT NULL,`artist_id` INTEGER NOT NULL,`duration` INTEGER);''')
     c.execute('''CREATE TABLE `sender` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `name` INTEGER NOT NULL UNIQUE);''')
     c.execute('''CREATE TABLE `playlist` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `sender_id` INTEGER NOT NULL, `title_id` INTEGER NOT NULL, `date` INTEGER NOT NULL, `time` INTEGER NOT NULL);''')
     c.execute('''CREATE TABLE `artist` ( `id` INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT, `artist` TEXT NOT NULL);''')
@@ -52,7 +52,7 @@ def database_save(sender, daten,db_file):
             title_exist = c.fetchone()
             if title_exist is None:
                 c.execute(
-                    'INSERT INTO title (title, artist, duration) VALUES (?, ?, ?)',
+                    'INSERT INTO title (title, artist_id, duration) VALUES (?, ?, ?)',
                     (data['title'],
                      artist_id,
                      data['duration'],

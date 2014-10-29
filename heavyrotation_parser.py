@@ -5,6 +5,7 @@ from dateutil import parser
 import datetime
 
 def parse_playlist(settings, xpath, html_source):
+    print "----------"
     playlist_url = settings['playlist_url']
     type = settings['type']
     
@@ -22,15 +23,11 @@ def parse_playlist(settings, xpath, html_source):
     count_to = int(root.xpath(xpath['count_to'])) + 1
     count_from = int(xpath['count_from'])
 
-
-    
     if count_to > 0:
         for x in reversed(range(count_from, count_to)):
-            #print x
             try:
-                time_ = root.xpath(construct_xpath(xpath['time'],x))[0].replace('Uhr','')
+                time_ = root.xpath(construct_xpath(xpath['time'],x))[0].replace('Uhr','').replace('.',':')
                 time_ = parser.parse(time_)
-		today = datetime.datetime.today()
                 date = time_.strftime('%Y-%m-%d')
                 time = time_.strftime('%H:%M:%S')
                 artist = root.xpath(construct_xpath(xpath['artist'],x))[0]
@@ -43,18 +40,20 @@ def parse_playlist(settings, xpath, html_source):
                     duration = ''
             except:
                 continue
-	    #print int(today.strftime('%s')) - int(time_.strftime('%s'))
-            timestamp_diff = int(today.strftime('%s')) - int(time_.strftime('%s'))
-            print "timestamp ",timestamp_diff
-            if timestamp_diff < 0:
-                date = (today - datetime.timedelta(days=1)).date()
-		#date = time_.strftime('%Y-%m-%d')
+            
+            today_ = datetime.datetime.today()
+            time_ = time_.replace(tzinfo=None)
+            if (today_ - time_).total_seconds() < 0:
+                date = datetime.date.today() - datetime.timedelta(1)
             playlist.append({'date': date, 'time': time, 'artist': artist, 'title': title, 'duration': duration})
     return playlist
     
 def construct_xpath(string, counter):
-    xpath = string.replace('%counter%', str(counter)) + '/text()'
-    #print xpath
+
+    if 'text()' in string:
+        xpath = string.replace('%counter%', str(counter))
+    else:
+        xpath = string.replace('%counter%', str(counter)) + '/text()'
     return xpath
     
 def duration_convert(seconds):

@@ -56,13 +56,12 @@ if __name__ == '__main__':
         for station in args.stations:
             config_file = station + '.config'
             get_playlist(config_file)
-
-            try:
-                get_playlist(config_file)
-            except:
-                e = sys.exc_info()
-                print e 
-                print "Could not parse Station: " + station
+            # try:
+                # get_playlist(config_file)
+            # except:
+                # e = sys.exc_info()
+                # print e 
+                # print "Could not parse Station: " + station
             
     if args.all:
         config_files = hr_configs.list_configs()
