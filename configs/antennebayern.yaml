@@ -1,0 +1,17 @@
+settings:
+    stationname: Antenne Bayern
+    shortname: antennebayern
+    description: Wir lieben Bayern. Wir lieben die Hits
+    baseurl: http://www.antenne.de
+    playlist_url: http://www.antenne.de/musik/song-suche.html
+    playlist_type: html
+
+xpath:
+    count_from: 1
+    count_to: count(//div[contains(concat(' ',normalize-space(@class),' '),' left ')])
+    date: (//span[contains(concat(' ',normalize-space(@class),' '),' song-time__date ')])[%counter%]/text()
+    time: (//span[contains(concat(' ',normalize-space(@class),' '),' song-time__hour ')])[%counter%]/text()
+    artist: (//a[contains(concat(' ',normalize-space(@class),' '),' song-author ')])[%counter%]/text()
+    title: (//a[contains(concat(' ',normalize-space(@class),' '),' song-title ')])[%counter%]/text()
+    duration:
+    datetime:

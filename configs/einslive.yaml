@@ -1,0 +1,16 @@
+settings:
+    stationname: Eins Live
+    shortname: einslive
+    description: 1LIVE IST MUSIK
+    baseurl: http://www.einslive.de
+    playlist_url: http://www.einslive.de/einslive/musik/playlist/index.html
+    playlist_type: html
+
+xpath:
+    count_from: 1
+    count_to: count(.//*[@id='searchPlaylistResult']/tbody/tr)
+    date: .//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/th/text()[1]
+    time: .//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/th/text()[2]
+    artist: .//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/td/strong/text()
+    title: .//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/td/text()
+    duration:

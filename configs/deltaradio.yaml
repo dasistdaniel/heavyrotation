@@ -1,0 +1,17 @@
+settings:
+  stationname: DeltaRadio
+  shortname: deltaradio
+  description: Das einzige Radio mit guter Musik
+  baseurl: http://www.deltaradio.de
+  playlist_url: http://www.deltaradio.de/feeds/playlist.rss
+  playlist_type: xml
+
+xpath:
+  count_from: 1
+  count_to: count(.//item)
+  datetime: .//item[%counter%]/pubDate/text()
+  date:
+  time: 
+  artist: .//item[%counter%]/artist/text()
+  title: .//item[%counter%]/plain_title/text()
+  duration: .//item[%counter%]/duration/text()

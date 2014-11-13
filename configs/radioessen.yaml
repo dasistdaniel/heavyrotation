@@ -1,0 +1,16 @@
+settings:
+    stationname: Radio Essen
+    shortname: radioessen
+    description: 100% von hier. Der beste Mix
+    baseurl: http://www.radioessen.de
+    playlist_url: http://www.radioessen.de/musik/playlist.html
+    playlist_type: html
+
+xpath:
+    count_from: 3
+    count_to: count(.//*[@id='c2145']/div/table/tr) + 2
+    date: 
+    time: .//*[@id='c2145']/div/table/tr[%counter%]/td[3]/text()[1]
+    artist: .//*[@id='c2145']/div/table/tr[%counter%]/td[2]/b/text()
+    title: .//*[@id='c2145']/div/table/tr[%counter%]/td[2]/text()
+    duration:
