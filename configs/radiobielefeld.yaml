@@ -9,7 +9,6 @@ settings:
 xpath:
     count_from: 2
     count_to: count(.//*[@id='c1190']/div/table/tr) + 2
-    date: 
     time: .//*[@id='c1190']/div/table/tr[%counter%]/td[1]/text()
     artist: .//*[@id='c1190']/div/table/tr[%counter%]/td[3]/text()
     title: .//*[@id='c1190']/div/table/tr[%counter%]/td[4]/text()

@@ -13,4 +13,3 @@ xpath:
     time: .//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/th/text()[2]
     artist: .//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/td/strong/text()
     title: .//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/td/text()
-    duration:

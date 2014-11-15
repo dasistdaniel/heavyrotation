@@ -36,31 +36,40 @@ def parse_playlist(settings, xpath):
         root = html.parse(settings['playlist_url'])
     elif settings['playlist_type'] == 'xml':
         root = etree.parse(settings['playlist_url'])
+    else:
+        root = html.parse(settings['playlist_url'])
     count_from = int(xpath['count_from']) 
     count_to = int(root.xpath(xpath['count_to'])) - 1 
 
     for count in reversed(range(count_from, count_to)):
-        if xpath['datetime']:
+        if 'datetime' in xpath:
             dt =  root.xpath(construct_xpath(xpath['datetime'],count))[0].strip()
+            if '+01' in dt: # Simpler Hack für DeltaRadio
+                dt = str(dateutil.parser.parse(dt, ignoretz=True).replace(second=0) + datetime.timedelta(hours=1))
+            else:
+                dt = str(dateutil.parser.parse(dt, ignoretz=True).replace(second=0))
 
-        if xpath['date']:
+        if 'date' in xpath:
             date = root.xpath(construct_xpath(xpath['date'],count))[0].strip()
         else:
             date = str(datetime.date.today())
-        if xpath['time']:
+
+        if 'time' in xpath:
             time = root.xpath(construct_xpath(xpath['time'],count))[0].strip()
             time = time.replace('Uhr', '').replace('.', ':').strip()
-        if xpath['artist']:
+
+        if 'artist' in xpath:
             artist = root.xpath(construct_xpath(xpath['artist'],count))[0].strip()
-        if xpath['title']:
+
+        if 'title' in xpath:
             title = root.xpath(construct_xpath(xpath['title'],count))[0].strip()
-        if xpath['duration']:
+
+        if 'duration' in xpath:
             duration = root.xpath(construct_xpath(xpath['duration'],count))[0].strip()
             duration = get_seconds(duration)
+
         if not dt:
             dt = str((dateutil.parser.parse(date + ' ' + time)).replace(second=0))
-        else:
-            dt = str(dateutil.parser.parse(dt).replace(second=0))
 
         playlist.append({'datetime': dt, 'artist': artist, 'title': title, 'duration': duration})
     return playlist
@@ -77,9 +86,6 @@ def get_seconds(t):
         return seconds
     else:
         return ''
-
-def print_json(playlist):
-    print json.dumps(playlist,sort_keys=True, indent=4, separators=(',', ': '))
 
 def print_data(playlist):
     for track in playlist:
