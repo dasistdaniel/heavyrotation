@@ -4,6 +4,7 @@
 import sys
 import os
 import heavyrotation_parser
+import heavyrotation_mysql
 import json
 
 def print_json(playlist):
@@ -17,5 +18,8 @@ if __name__ == "__main__":
     if len(sys.argv) <> 2 :
         sys.exit('Usage: %s configfile' % sys.argv[0])
     else:
-        print_data(heavyrotation_parser.get_playlist(sys.argv[1]))
-
+	shortname = sys.argv[1]
+	settings = heavyrotation_parser.get_config(shortname)
+	playlist = heavyrotation_parser.get_playlist(shortname)
+        print_data(playlist)
+	heavyrotation_mysql.add_entries(playlist, settings['settings'])

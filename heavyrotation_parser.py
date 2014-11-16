@@ -9,18 +9,18 @@ import os
 import sys
 
 def get_playlist(config):
+    settings = get_config(config)
+    playlist = parse_playlist(settings['settings'],settings['xpath'])
+    return playlist
+
+def get_config(config):
     config = os.path.join(os.getcwd(), 'configs', config + '.yaml')
     if not os.path.isfile(config):
         sys.exit('ERROR: Configfile %s was not found' % config)
     else:
-        settings = get_config(config)
-        playlist = parse_playlist(settings['settings'],settings['xpath'])
-        return playlist
-
-def get_config(config):
-    yaml_stream = open(config,'r')
-    settings = yaml.load(yaml_stream)
-    return settings
+        yaml_stream = open(config,'r')
+        settings = yaml.load(yaml_stream)
+        return settings
 
 def parse_playlist(settings, xpath):
     playlist = []
@@ -48,16 +48,23 @@ def parse_playlist(settings, xpath):
                 dt = str(dateutil.parser.parse(dt, ignoretz=True).replace(second=0) + datetime.timedelta(hours=1))
             else:
                 dt = str(dateutil.parser.parse(dt, ignoretz=True).replace(second=0))
-
-        if 'date' in xpath:
-            date = root.xpath(construct_xpath(xpath['date'],count))[0].strip()
         else:
-            date = str(datetime.date.today())
+            if 'time' in xpath:
+                time = root.xpath(construct_xpath(xpath['time'],count))[0].strip()
+                time = time.replace('Uhr', '').replace('.', ':').strip()
 
-        if 'time' in xpath:
-            time = root.xpath(construct_xpath(xpath['time'],count))[0].strip()
-            time = time.replace('Uhr', '').replace('.', ':').strip()
-
+            if 'date' in xpath:
+                date = root.xpath(construct_xpath(xpath['date'],count))[0].strip()
+            else:
+                date_ = datetime.datetime.now()
+                time_ = dateutil.parser.parse(time).replace(tzinfo=None)
+                print date_, time_, (date_ - time_).total_seconds()
+                if (date_ - time_).total_seconds() < 0:
+                    date_ = date_ - datetime.timedelta(1)
+                date = str(date_)
+            
+            dt = str((dateutil.parser.parse(date + ' ' + time)).replace(second=0))
+            
         if 'artist' in xpath:
             artist = root.xpath(construct_xpath(xpath['artist'],count))[0].strip()
 
@@ -67,9 +74,6 @@ def parse_playlist(settings, xpath):
         if 'duration' in xpath:
             duration = root.xpath(construct_xpath(xpath['duration'],count))[0].strip()
             duration = get_seconds(duration)
-
-        if not dt:
-            dt = str((dateutil.parser.parse(date + ' ' + time)).replace(second=0))
 
         playlist.append({'datetime': dt, 'artist': artist, 'title': title, 'duration': duration})
     return playlist
