@@ -1,0 +1,22 @@
+{
+    "informations": 
+        {
+            "name": "EinsLive",
+            "url": "http://www.einslive.de"
+        }
+    ,
+    "settings": 
+        {
+            "playlist_url": "http://www.einslive.de/einslive/musik/playlist/index.html",
+            "playlist_type": "html"
+        }
+    ,
+    "xpath": 
+        {
+            "length": "count(.//*[@id='searchPlaylistResult']/tbody/tr)",
+            "time": "translate(substring-before(.//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/th/text()[2],' '), '.', ':')",
+            "date": "substring-before(.//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/th/text()[1], ',')",
+            "artist": ".//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/td/strong/text()",
+            "title": ".//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/td/text()"
+        }
+}

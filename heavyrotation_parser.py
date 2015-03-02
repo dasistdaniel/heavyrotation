@@ -1,102 +1,41 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
+import logging
+import requests
 from lxml import html
-from lxml import etree
-import dateutil.parser
-import datetime
-import yaml
-import os
-import sys
 
-def get_playlist(config):
-    settings = get_config(config)
-    playlist = parse_playlist(settings['settings'],settings['xpath'])
-    return playlist
+def parse_playlist(config_data):
 
-def get_config(config):
-    config = os.path.join(os.getcwd(), 'configs', config + '.yaml')
-    if not os.path.isfile(config):
-        sys.exit('ERROR: Configfile %s was not found' % config)
-    else:
-        yaml_stream = open(config,'r')
-        settings = yaml.load(yaml_stream)
-        return settings
-
-def parse_playlist(settings, xpath):
     playlist = []
-
-    date = ''
-    time = ''
-    artist = ''
-    title = ''
-    duration = ''
-    dt = ''
-
+    
+    settings = config_data['settings']
+    xpath = config_data['xpath']
+    informations = config_data['informations']
+    
+    logging.info ('Loading %s' % settings['playlist_url'])
+    req = requests.get(settings['playlist_url'])
+    logging.debug (req)
+    logging.debug (req.headers)
+    
+    
+    logging.info ('Check for Playlist Type')
     if settings['playlist_type'] == 'html':
-        root = html.parse(settings['playlist_url'])
-    elif settings['playlist_type'] == 'xml':
-        root = etree.parse(settings['playlist_url'])
-    else:
-        root = html.parse(settings['playlist_url'])
-    count_from = int(xpath['count_from']) 
-    count_to = int(root.xpath(xpath['count_to'])) - 1 
-
-    for count in reversed(range(count_from, count_to)):
-        if 'datetime' in xpath:
-            dt =  root.xpath(construct_xpath(xpath['datetime'],count))[0].strip()
-            if '+01' in dt: # Simpler Hack für DeltaRadio
-                dt = str(dateutil.parser.parse(dt, ignoretz=True).replace(second=0) + datetime.timedelta(hours=1))
-            else:
-                dt = str(dateutil.parser.parse(dt, ignoretz=True).replace(second=0))
-        else:
-            if 'time' in xpath:
-                time = root.xpath(construct_xpath(xpath['time'],count))[0].strip()
-                time = time.replace('Uhr', '').replace('.', ':').strip()
-
-            if 'date' in xpath:
-                date = root.xpath(construct_xpath(xpath['date'],count))[0].strip()
-            else:
-                date_ = datetime.datetime.now()
-                time_ = dateutil.parser.parse(time).replace(tzinfo=None)
-                print date_, time_, (date_ - time_).total_seconds()
-                if (date_ - time_).total_seconds() < 0:
-                    date_ = date_ - datetime.timedelta(1)
-                date = str(date_)
+        logging.info("Playlist Type html")
+        lxml_data = html.fromstring(req.text.encode("utf-8"))
+        
+        length = int(lxml_data.xpath(xpath['length']))
+        
+        for counter in xrange(1,length + 1):
+            time = lxml_data.xpath(construct_xpath(xpath['time'], counter)).strip()
+            date = lxml_data.xpath(construct_xpath(xpath['date'], counter)).strip()
+            artist = lxml_data.xpath(construct_xpath(xpath['artist'], counter))[0].strip()
+            title = lxml_data.xpath(construct_xpath(xpath['title'], counter))[0].strip()
             
-            dt = str((dateutil.parser.parse(date + ' ' + time)).replace(second=0))
-            
-        if 'artist' in xpath:
-            artist = root.xpath(construct_xpath(xpath['artist'],count))[0].strip()
-
-        if 'title' in xpath:
-            title = root.xpath(construct_xpath(xpath['title'],count))[0].strip()
-
-        if 'duration' in xpath:
-            duration = root.xpath(construct_xpath(xpath['duration'],count))[0].strip()
-            duration = get_seconds(duration)
-
-        playlist.append({'datetime': dt, 'artist': artist, 'title': title, 'duration': duration})
+            logging.debug("%s. [%s %s] %s - %s" % (counter, time, date, artist, title))
+    
+            playlist.append({'date':date, 'time': time, 'artist': artist, 'title': title})
     return playlist
-
+    
 def construct_xpath(xpath, number):
-    if xpath:
-        return xpath.replace('%counter%', str(number))
-    else:
-        return None
-
-def get_seconds(t):
-    seconds = sum(int(x) * 60 ** i for i,x in enumerate(reversed(t.split(":"))))
-    if seconds > 150:
-        return seconds
-    else:
-        return ''
-
-def print_data(playlist):
-    for track in playlist:
-        print track['datetime'], track['artist'], track['title'],track['duration']
-
-if __name__ == "__main__":
-    if len(sys.argv) <> 2 :
-        sys.exit('Usage: %s configfile' % sys.argv[0])
-    else:
-        print_data (get_playlist(sys.argv[1]))
+    repl = xpath.replace('%counter%', str(number))
+    return repl
