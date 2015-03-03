@@ -9,6 +9,7 @@ import heavyrotation_parser
 
 VER = 0.2
 DEBUG = logging.CRITICAL
+#DEBUG = logging.DEBUG
 
 def print_help():
     print "heavyrotation %s" % VER

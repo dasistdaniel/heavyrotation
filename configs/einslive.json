@@ -13,7 +13,7 @@
     ,
     "xpath": 
         {
-            "length": "count(.//*[@id='searchPlaylistResult']/tbody/tr)",
+            "counter_length": "count(.//*[@id='searchPlaylistResult']/tbody/tr)",
             "time": "translate(substring-before(.//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/th/text()[2],' '), '.', ':')",
             "date": "substring-before(.//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/th/text()[1], ',')",
             "artist": ".//*[@id='searchPlaylistResult']/tbody/tr[%counter%]/td/strong/text()",

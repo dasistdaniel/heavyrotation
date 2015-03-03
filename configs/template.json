@@ -1,0 +1,27 @@
+{
+    "informations": 
+        {
+            "name": "",
+            "url": ""
+        }
+    ,
+    "settings": 
+        {
+            "playlist_url": "",
+            "playlist_type": "html"
+        }
+    ,
+    "xpath": 
+        {
+            "counter_length": "",
+			"counter_start": "",
+            "counter_steps": "",
+            "date": "",
+            "time": "",
+            "artist": "",
+            "title": ""
+        }
+}
+
+
+

@@ -3,6 +3,7 @@
 import logging
 import requests
 from lxml import html
+import datetime
 
 def parse_playlist(config_data):
 
@@ -23,13 +24,28 @@ def parse_playlist(config_data):
         logging.info("Playlist Type html")
         lxml_data = html.fromstring(req.text.encode("utf-8"))
         
-        length = int(lxml_data.xpath(xpath['length']))
+        counter_length = int(lxml_data.xpath(xpath['counter_length']))+1
+
+        try:
+            counter_start = int(xpath['counter_start'])
+        except:
+            counter_start = 1
         
-        for counter in xrange(1,length + 1):
+        try: 
+            counter_steps = int(xpath['counter_steps'])
+        except:
+            counter_steps = 1
+        
+        logging.debug("counter_start: %s, counter_length: %s, counter_step: %s" % (counter_start, counter_length, counter_steps))
+        for counter in xrange(counter_start,counter_length,counter_steps):
+            try:
+                date = lxml_data.xpath(construct_xpath(xpath['date'], counter)).strip()
+            except:
+                date = str(datetime.datetime.today().strftime("%d.%m.%Y"))
+                # date = req.headers['date']
             time = lxml_data.xpath(construct_xpath(xpath['time'], counter)).strip()
-            date = lxml_data.xpath(construct_xpath(xpath['date'], counter)).strip()
-            artist = lxml_data.xpath(construct_xpath(xpath['artist'], counter))[0].strip()
-            title = lxml_data.xpath(construct_xpath(xpath['title'], counter))[0].strip()
+            artist = lxml_data.xpath(construct_xpath(xpath['artist'], counter)).strip()
+            title = lxml_data.xpath(construct_xpath(xpath['title'], counter)).strip()
             
             logging.debug("%s. [%s %s] %s - %s" % (counter, time, date, artist, title))
     
@@ -38,4 +54,6 @@ def parse_playlist(config_data):
     
 def construct_xpath(xpath, number):
     repl = xpath.replace('%counter%', str(number))
+    repl = 'string('+repl+')'
+    logging.debug(repl)
     return repl
