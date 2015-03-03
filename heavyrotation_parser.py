@@ -24,15 +24,15 @@ def parse_playlist(config_data):
         logging.info("Playlist Type html")
         lxml_data = html.fromstring(req.text.encode("utf-8"))
         
-        counter_length = int(lxml_data.xpath(xpath['counter_length']))+1
+        counter_length = int(lxml_data.xpath(settings['counter_length']))+1
 
         try:
-            counter_start = int(xpath['counter_start'])
+            counter_start = int(settings['counter_start'])
         except:
             counter_start = 1
         
         try: 
-            counter_steps = int(xpath['counter_steps'])
+            counter_steps = int(settings['counter_steps'])
         except:
             counter_steps = 1
         

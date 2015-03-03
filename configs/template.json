@@ -9,13 +9,14 @@
         {
             "playlist_url": "",
             "playlist_type": "html"
-        }
-    ,
-    "xpath": 
-        {
             "counter_length": "",
 			"counter_start": "",
             "counter_steps": "",
+		}
+    ,
+    "xpath": 
+        {
+
             "date": "",
             "time": "",
             "artist": "",
