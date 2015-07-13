@@ -1,0 +1,26 @@
+{
+    "informations": 
+        {
+            "name": "Antenne Bayern",
+            "url": "http://www.antenne.de"
+        }
+    ,
+    "settings": 
+        {
+            "playlist_url": "http://www.antenne.de/musik/song-suche.html",
+            "playlist_type": "html",
+            "counter_length": "count(//section[contains(concat(' ',normalize-space(@class),' '),' media-list ')]/div/a)-1",
+            "counter_steps": 2
+		}
+    ,
+    "xpath": 
+        {
+            "date": "string(//section[contains(concat(' ',normalize-space(@class),' '),' media-list ')]/div[%counter%]/div/div[1]/p/span[1]/text()[1])",
+            "time": "substring-before(//section[contains(concat(' ',normalize-space(@class),' '),' media-list ')]/div[%counter%]/div/div[1]/p/span[2]/text(), ' ')",
+            "artist": "//section[contains(concat(' ',normalize-space(@class),' '),' media-list ')]/div[%counter%]/div/div[1]/a[2]/text()",
+            "title": "//section[contains(concat(' ',normalize-space(@class),' '),' media-list ')]/div[%counter%]/div/div[1]/a[1]/text()"
+        }
+}
+
+
+

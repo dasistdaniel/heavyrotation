@@ -1,83 +1,61 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-import argparse
-from time import sleep
-import importlib
-
-import heavyrotation_configs as hr_configs
-import heavyrotation_parser as hr_parser
-import heavyrotation_database as hr_database
 
 import sys
+import os.path
+import json
+import logging
+import heavyrotation_parser
 
-def print_list(settings):
-    config =  {}
-    for setting in settings:
-        config['shortname'] =  setting[0:-7]
-        config['name'] = settings[setting]['settings']['sendername']
-        config['short_description'] = settings[setting]['settings']['kurzbeschreibung']
-        config['url'] = settings[setting]['settings']['url']
+VER = 0.2
+DEBUG = logging.CRITICAL
+#DEBUG = logging.DEBUG
+
+def print_help():
+    print "heavyrotation %s" % VER
+    print ""
+    print "heavyrotation trys to parse the playlist data of different radio Websites"
+    print "and outputs it as json"
+    print ""
+    print "Usage: %s configfile" % sys.argv[0]
+    print ""
+    
+if __name__ == "__main__":
+    logging.basicConfig(level=DEBUG)
+    
+    output = []
         
-        print ('%s\t%s\t%s\t%s\t' % (calc_tabs(config['shortname']), config['name'], config['short_description'], config['url']))
-        
-def calc_tabs(string):
-    if len(string) < 8:
-        return string + '\t'
+    logging.info ('checking arguments')
+    if len(sys.argv) <> 2 :
+        logging.info ('found %s arguments, needed 1' % (len(sys.argv) - 1))
+        print_help()
+        sys.exit()
     else:
-        return string
-        
-def get_playlist(config_file):
-    config = hr_configs.read_configs([config_file])[config_file]
-    if not config['settings']['type'] == 'plugin_html' or config['settings']['type'] == 'plugin_xml':
-        playlist_data = hr_parser.parse_playlist(config['settings'], config['xpath'],None)
-    else:
-        plugin = importlib.import_module("plugins." + config['settings']['plugin'])
-        playlist_data = plugin.parse_playlist(config['settings'], config['xpath'], None)
-        
-    hr_database.database_save(config['settings']['dbname'], playlist_data, args.database)
-
-if __name__ == '__main__':
-    parser = argparse.ArgumentParser(__file__, description='heavyrotation, get data of played songs from differnt radio station websites', epilog='programmed by dasistdaniel')
-    parser.add_argument('--version', action='version', version='%(prog)s 0.5')
-    parser.add_argument('stations', help=u'which station config should be loaded? See --list', nargs='*')
-    parser.add_argument('-l', '--list', help='list all stations', action='store_true')
-    parser.add_argument('-a', '--all', help=u'use all availabe station', action='store_true')
-    parser.add_argument('--printonly', help=u'only show the data, don\'t save it to the database', action='store_true')
-    parser.add_argument('-db', '--database', help=u'which database file should be used', action='store', default='database/heavyrotation.sqlite')
-    parser.add_argument('--loop', help=u'simple loop daemon mode', action='store_true')
-    args = parser.parse_args()
-
-    if args.list:
-        config_files = hr_configs.list_configs()
-        config_settings = hr_configs.read_configs(config_files)
-        print_list(config_settings)
-        
-    if args.stations:
-        for station in args.stations:
-            config_file = station + '.config'
-            get_playlist(config_file)
-            # try:
-                # get_playlist(config_file)
-            # except:
-                # e = sys.exc_info()
-                # print e 
-                # print "Could not parse Station: " + station
+        config_file = sys.argv[1]
+        file = os.path.basename(config_file)
+        logging.info ('check if "%s" exists"' % config_file)
+        if os.path.isfile(config_file):
+            logging.info ('file "%s" exists' % file)
+            fileName, fileExtension = os.path.splitext(config_file)
+            logging.info ('check if config is a .json file')
+            if fileExtension == '.json':
+                logging.info ('found .json extension')
+                logging.info ('loading %s' % file)
+                fh = open(config_file)
+                config_data = json.load(fh)
+                fh.close()
+            else:
+                logging.info ('wrong extension. found %s' %fileExtension)
+                print "No recognised File Extension. Only .json files are allowed."
+                sys.exit()
             
-    if args.all:
-        config_files = hr_configs.list_configs()
-        for config_file in config_files:
-            try:
-                get_playlist(config_file)
-            except:
-                print "Could not parse Station: " + config_file
+            logging.info ('Loading Parser')
+            playlist = heavyrotation_parser.parse_playlist(config_data)
+            logging.info ('Parsed Data: \n %s' %playlist)
             
-    if args.loop:
-        config_files = hr_configs.list_configs()
-        while True:
-            for config_file in config_files:
-                try:
-                    get_playlist(config_file)
-                except:
-                    print "Could not parse Station: " + config_file
-            print 'wait for 5 minutes'
-            sleep(300)
+            output.append({'informations':config_data['informations'], 'playlist' : playlist})
+            print json.dumps(output,  sort_keys=True,indent=4, separators=(',', ': '))
+        else: 
+            logging.info ('"%s" does not exist"' % file)
+            print "Could'n find the Configfile."
+            sys.exit()
