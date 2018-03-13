@@ -2,6 +2,7 @@
 import scrapy
 from scrapy.crawler import CrawlerProcess
 import simplejson 
+import sys
         
 class heavyrotation(scrapy.Spider):
 
@@ -46,4 +47,8 @@ def getPlaylist(station, config, url):
         name=config)
     process.start()
     
-getPlaylist('1Live', 'wdr', 'https://www1.wdr.de/radio/1live/musik/1live-playlist/index.html')
+if len (sys.argv) != 4 :
+    print "Usage: " + sys.argv[0] + " [stationname] [config] [url]"
+    sys.exit (1)
+else:
+    getPlaylist( sys.argv[1], sys.argv[2],  sys.argv[3])
