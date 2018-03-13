@@ -1,0 +1,22 @@
+{
+    "iterator": {
+        "Search": "#searchPlaylistResult table tbody tr",
+        "Type": "css"
+    },
+    "date": {
+        "Search": "translate(th/text()[1], \",\", \"\")",
+        "Type": "xpath"
+    },
+    "time": {
+        "Search": "translate(substring-before(th/text()[2],\" Uhr\"),\".\", \":\")",
+        "Type": "xpath"
+    },
+    "artist": {
+        "Search": "normalize-space(td[2]/text())",
+        "Type": "xpath"
+    },
+    "title": {
+        "Search": "normalize-space(td[1]/text())",
+        "Type": "xpath"
+    }
+}
