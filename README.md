@@ -21,5 +21,10 @@ heavyrotation.py WDR3 wdr https://www1.wdr.de/radio/wdr3/titelsuche-wdrdrei-104.
 heavyrotation.py WDR4 wdr https://www1.wdr.de/radio/wdr4/titelsuche-wdrvier-102.html
 heavyrotation.py WDR5 wdr https://www1.wdr.de/radio/wdr5/musik/titelsuche-wdrfuenf-104.html
 heavyrotation.py Cosmo wdr https://www1.wdr.de/radio/cosmo/musik/playlist/index.html
-heavyrotation.py Kiraka wdr https://www1.wdr.de/kinder/radio/kiraka/musik/playlist/index.html (Warning: displayed two times)
+```
+
+Kiraka needs some special treatment
+also it implements new iterator start, end option
+```
+heavyrotation.py Kiraka wdr_kiraka https://www1.wdr.de/kinder/radio/kiraka/musik/playlist/index.html (Warning: displayed two times)
 ```

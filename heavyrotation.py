@@ -5,7 +5,6 @@ import simplejson
 import sys
         
 class heavyrotation(scrapy.Spider):
-
     def loadSettings(self, station):
         with open('settings/' + station + '.json') as data_file:    
             data = simplejson.load(data_file)
@@ -27,7 +26,22 @@ class heavyrotation(scrapy.Spider):
         playlist = []
         
         songs = self.getData(response, settings['iterator'])
-        for song in songs:
+        
+        try:
+            start = settings['iterator']['Start']
+        except:
+            start = 0
+            
+        try:
+            end = settings['iterator']['End']
+        except:
+            end = len(songs)
+            
+        print start, end
+        
+        # for song in songs:#
+        for i in range(start, end):
+            song = songs[i]
             date   = self.getData(song, settings['date']).extract_first().encode('utf-8')
             time   = self.getData(song, settings['time']).extract_first().encode('utf-8')
             artist = self.getData(song, settings['artist']).extract_first().encode('utf-8')
@@ -39,7 +53,7 @@ class heavyrotation(scrapy.Spider):
 def getPlaylist(station, config, url):        
     process = CrawlerProcess({
         'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
-        'LOG_ENABLED': False,
+        'LOG_ENABLED': True,
         'STATION' : station
     })
     process.crawl(heavyrotation, 
