@@ -3,7 +3,8 @@ import scrapy
 from scrapy.crawler import CrawlerProcess
 import simplejson 
 import sys
-        
+import datetime      
+
 class heavyrotation(scrapy.Spider):
     def loadSettings(self, station):
         with open('settings/' + station + '.json') as data_file:    
@@ -37,23 +38,21 @@ class heavyrotation(scrapy.Spider):
         except:
             end = len(songs)
             
-        print start, end
-        
-        # for song in songs:#
         for i in range(start, end):
             song = songs[i]
             date   = self.getData(song, settings['date']).extract_first().encode('utf-8')
             time   = self.getData(song, settings['time']).extract_first().encode('utf-8')
+            dt     = datetime.datetime.strptime(date + " " + time, settings['dtformat'] )
             artist = self.getData(song, settings['artist']).extract_first().encode('utf-8')
             title  = self.getData(song, settings['title']).extract_first().encode('utf-8')
-            playlist.append({'station': station, 'date': date, 'time': time, 'artist': artist, 'title': title})
+            playlist.append({'station': station, 'datetime': str(dt), 'artist': artist, 'title': title})
         
         print simplejson.dumps(playlist, sort_keys=True, indent=4)
 
 def getPlaylist(station, config, url):        
     process = CrawlerProcess({
         'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
-        'LOG_ENABLED': True,
+        'LOG_ENABLED': False,
         'STATION' : station
     })
     process.crawl(heavyrotation, 

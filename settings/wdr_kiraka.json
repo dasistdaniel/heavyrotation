@@ -13,6 +13,7 @@
         "Search": "translate(substring-before(th/text()[2],\" Uhr\"),\".\", \":\")",
         "Type": "xpath"
     },
+    "dtformat": "%d.%m.%Y %H:%M",
     "artist": {
         "Search": "normalize-space(td[2]/text())",
         "Type": "xpath"
