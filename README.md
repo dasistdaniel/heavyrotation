@@ -38,7 +38,5 @@ heavyrotation.py "NDR2" ndr https://www.ndr.de/ndr2/programm/titelliste1202.html
 heavyrotation.py "NDR Kultur" ndr https://www.ndr.de/ndrkultur/programm/titelliste1212.html
 heavyrotation.py "NDR Blue" ndr https://www.ndr.de/ndrblue/programm/titelliste1214.html
 heavyrotation.py "NDR Plus" ndr https://www.ndr.de/ndrplus/programm/titelliste1230.html
-
-**not working**
 heavyrotation.py "NJOY" ndr https://www.n-joy.de/musik/titelliste/index.html
 ```
