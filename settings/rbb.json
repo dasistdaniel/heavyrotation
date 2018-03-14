@@ -1,0 +1,24 @@
+{
+    "iterator": {
+        "Search": "tr",
+        "Type": "css",
+        "Start": 1
+    },
+    "date": {
+        "Search": "td:nth-child(1)::text",
+        "Type": "css"
+    },
+    "time": {
+        "Search": "td:nth-child(2)::text",
+        "Type": "css"
+    },
+    "dtformat": "%d.%m.%Y %H:%M",
+    "artist": {
+        "Search": "td:nth-child(3)::text",
+        "Type": "css"
+    },
+    "title": {
+        "Search": "td:nth-child(4)::text",
+        "Type": "css"
+    }
+}

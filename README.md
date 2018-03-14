@@ -40,3 +40,9 @@ heavyrotation.py "NDR Blue" ndr https://www.ndr.de/ndrblue/programm/titelliste12
 heavyrotation.py "NDR Plus" ndr https://www.ndr.de/ndrplus/programm/titelliste1230.html
 heavyrotation.py "NJOY" ndr https://www.n-joy.de/musik/titelliste/index.html
 ```
+
+(rbb)
+```
+**working**
+heavyrotation.py "Antenne Brandenburg" rbb http://playlisten.rbb-online.de/antenne_brandenburg/main/index.php
+heavyrotation.py "radioBERLIN 88,8" rbb http://playlisten.rbb-online.de/radioberlin/main/

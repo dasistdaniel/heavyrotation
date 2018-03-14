@@ -38,7 +38,7 @@ class heavyrotation(scrapy.Spider):
             end = settings['iterator']['End']
         except:
             end = len(songs)
-            
+
         for i in range(start, end):
             song = songs[i]
             
