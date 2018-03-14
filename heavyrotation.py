@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 # -*- coding: utf-8 -*-
 import scrapy
 from scrapy.crawler import CrawlerProcess
@@ -40,9 +41,14 @@ class heavyrotation(scrapy.Spider):
             
         for i in range(start, end):
             song = songs[i]
-            date   = self.getData(song, settings['date']).extract_first().encode('utf-8')
+            
+            if settings['date']['Type'] != 'today':
+                date   = self.getData(song, settings['date']).extract_first().encode('utf-8')
+            else:
+                date = datetime.datetime.now().strftime("%Y-%m-%d")
             time   = self.getData(song, settings['time']).extract_first().encode('utf-8')
             dt     = datetime.datetime.strptime(date + " " + time, settings['dtformat'] )
+            
             artist = self.getData(song, settings['artist']).extract_first().encode('utf-8')
             title  = self.getData(song, settings['title']).extract_first().encode('utf-8')
             playlist.append({'station': station, 'datetime': str(dt), 'artist': artist, 'title': title})
