@@ -1,6 +1,6 @@
 {
     "iterator": {
-        "Search": "li.program",
+        "Search": "#playlist > ul > li",
         "Type": "css"
     },
     "date": {
