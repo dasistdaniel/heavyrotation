@@ -51,9 +51,11 @@ class heavyrotation(scrapy.Spider):
             
             artist = self.getData(song, settings['artist']).extract_first().encode('utf-8')
             title  = self.getData(song, settings['title']).extract_first().encode('utf-8')
-            playlist.append({'station': station, 'datetime': str(dt), 'artist': artist, 'title': title})
+            playlist.append({'datetime': str(dt), 'artist': artist, 'title': title})
         
-        print simplejson.dumps(playlist, sort_keys=True, indent=4)
+        infos = {'station': station, 'playlist_url': response.url}
+        output = {'infos': infos, 'playlist': playlist}
+        print simplejson.dumps(output, sort_keys=False, indent=4)
 
 def getPlaylist(station, config, url):        
     process = CrawlerProcess({
