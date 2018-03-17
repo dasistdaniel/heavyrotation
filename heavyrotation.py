@@ -60,16 +60,17 @@ class heavyrotation(scrapy.Spider):
 def getPlaylist(station, config, url):        
     process = CrawlerProcess({
         'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
-        'LOG_ENABLED': False,
+        'LOG_ENABLED': True,
         'STATION' : station
     })
     process.crawl(heavyrotation, 
         start_urls=[url], 
         name=config)
     process.start()
-    
-if len (sys.argv) != 4 :
-    print "Usage: " + sys.argv[0] + " [stationname] [config] [url]"
-    sys.exit (1)
-else:
-    getPlaylist( sys.argv[1], sys.argv[2],  sys.argv[3])
+
+if __name__ == '__main__':
+    if len (sys.argv) != 4 :
+        print "Usage: " + sys.argv[0] + " [stationname] [config] [url]"
+        sys.exit (1)
+    else:
+        getPlaylist( sys.argv[1], sys.argv[2],  sys.argv[3])
