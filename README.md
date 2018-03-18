@@ -46,3 +46,13 @@ heavyrotation.py "NJOY" ndr https://www.n-joy.de/musik/titelliste/index.html
 **working**
 heavyrotation.py "Antenne Brandenburg" rbb http://playlisten.rbb-online.de/antenne_brandenburg/main/index.php
 heavyrotation.py "radioBERLIN 88,8" rbb http://playlisten.rbb-online.de/radioberlin/main/
+```
+
+(br)
+```
+heavyrotation.py "Bayern1" br http://www.br.de/radio/bayern-1/welle110.html
+heavyrotation.py "Bayern2" br http://www.br.de/radio/bayern2/welle106.html
+heavyrotation.py "Bayern3" br http://www.br.de/radio/bayern-3/bayern-3-playlist-musiktitel-recherche/index.html
+heavyrotation.py "Bayern Plus" br http://www.br.de/radio/bayern-plus/welle118.html
+
+```
