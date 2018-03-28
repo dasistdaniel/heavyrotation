@@ -61,19 +61,26 @@ class HeavyRotation(scrapy.Spider):
         output = {'infos': infos, 'playlist': playlist}
         print simplejson.dumps(output, sort_keys=False, indent=4)
 
-def get_playlist(station, config, url):
+def get_playlist(station, config, url, DEBUG):
     """ starts the Crawler """
     process = CrawlerProcess({
         'USER_AGENT': 'Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)',
-        'LOG_ENABLED': False,
+        'LOG_ENABLED': DEBUG,
         'STATION' : station
     })
     process.crawl(HeavyRotation, start_urls=[url], name=config)
     process.start()
 
 if __name__ == '__main__':
-    if len(sys.argv) != 4:
+    if len(sys.argv) <= 3 :
         print "Usage: " + sys.argv[0] + " [stationname] [config] [url]"
         sys.exit(1)
     else:
-        get_playlist(sys.argv[1], sys.argv[2], sys.argv[3])
+        try:
+            if sys.argv[4] == "1":
+                DEBUG = True
+            else:
+                DEBUG = False
+        except:
+            DEBUG = False
+        get_playlist(sys.argv[1], sys.argv[2], sys.argv[3], DEBUG)
