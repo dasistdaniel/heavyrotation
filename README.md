@@ -24,7 +24,7 @@ heavyrotation.py WDR5 wdr https://www1.wdr.de/radio/wdr5/musik/titelsuche-wdrfue
 heavyrotation.py Cosmo wdr https://www1.wdr.de/radio/cosmo/musik/playlist/index.html
 
 **working with special settings**
-heavyrotation.py Kiraka wdr_kiraka https://www1.wdr.de/kinder/radio/kiraka/musik/playlist/index.html (Warning: displayed two times)
+heavyrotation.py Kiraka wdr_kiraka https://www1.wdr.de/kinder/radio/kiraka/musik/playlist/index.html
 ```
 
 (ndr)
@@ -48,7 +48,7 @@ heavyrotation.py "Antenne Brandenburg" rbb http://playlisten.rbb-online.de/anten
 heavyrotation.py "radioBERLIN 88,8" rbb http://playlisten.rbb-online.de/radioberlin/main/
 ```
 
-(br)
+(br) Currently Broken
 ```
 heavyrotation.py "Bayern1" br http://www.br.de/radio/bayern-1/welle110.html
 heavyrotation.py "Bayern2" br http://www.br.de/radio/bayern2/welle106.html
